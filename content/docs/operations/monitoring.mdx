@@ -1,0 +1,39 @@
+---
+title: Monitoring
+description: Post-deployment monitoring and periodic review of AI systems.
+---
+
+## Why Monitor
+
+Approval is not the finish line. AI systems can degrade, drift, or produce unexpected outcomes after deployment. Google explicitly frames responsibility as an end-to-end lifecycle running from early research through post-launch monitoring.
+
+## What to Monitor
+
+| Category | What to Track |
+|----------|--------------|
+| **Performance** | Accuracy, latency, error rates, and key business metrics |
+| **Fairness** | Disaggregated performance across relevant demographic groups |
+| **Drift** | Data drift (input distribution changes) and concept drift (relationship between inputs and outputs changes) |
+| **Usage** | Volume, user patterns, edge case frequency |
+| **Feedback** | User complaints, override rates, support tickets |
+| **Security** | Anomalous inputs, attempted attacks, access violations |
+
+## Periodic Review Calendar
+
+| Review Type | Frequency | Responsible | Scope |
+|-------------|-----------|-------------|-------|
+| **Automated monitoring** | Continuous | System owner / engineering | Performance, drift, security alerts |
+| **Champion check-in** | Monthly | Champion | Usage patterns, team feedback, any concerns |
+| **Tier 2 review** | Every 6 months | Champion + specialist | Performance, fairness, compliance check |
+| **Tier 3 review** | Annually | Full council | Full re-assessment against impact assessment |
+| **Inventory audit** | Annually | Chair / program lead | Validate inventory against actual AI use |
+
+## Retirement
+
+When an AI system is decommissioned, document:
+
+- Reason for retirement
+- Date of decommissioning
+- Data disposition (archived, deleted, anonymized)
+- Lessons learned
+- Update the AI inventory to reflect retired status

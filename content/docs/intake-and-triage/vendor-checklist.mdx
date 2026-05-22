@@ -1,0 +1,49 @@
+---
+title: Vendor Checklist
+description: Additional governance considerations when procuring AI systems from third-party vendors.
+---
+
+## Why a Separate Checklist
+
+Vendor-procured AI introduces risks that in-house development does not: reduced visibility into model design, data practices, and security posture. The standard intake process applies, but the following additional questions should be addressed.
+
+## Vendor Assessment Questions
+
+### Transparency and Documentation
+
+- Does the vendor provide a model card or equivalent documentation?
+- Can the vendor explain how the model was trained, what data was used, and what its known limitations are?
+- Does the vendor publish bias testing or fairness audit results?
+- Is the vendor transparent about sub-processors and third-party model use?
+
+### Data Practices
+
+- Where is data stored and processed? (Jurisdictions and data residency)
+- Is customer data used for model training or improvement?
+- Can the organization opt out of data use for model training?
+- What data retention and deletion policies does the vendor follow?
+- How does the vendor handle data subject rights (access, deletion, correction)?
+
+### Security
+
+- Does the vendor have SOC 2, ISO 27001, or equivalent certification?
+- What adversarial testing has the vendor performed (red-teaming, prompt injection testing)?
+- How does the vendor handle vulnerability disclosure and patching?
+- What is the vendor's incident response process?
+
+### Contractual
+
+- Do the contract terms provide audit rights?
+- Are liability and indemnification terms clear for AI-specific harms?
+- Can the organization exit the contract and retrieve its data?
+- Are service levels defined for model performance and availability?
+
+### Ongoing Governance
+
+- Does the vendor notify customers of model updates or retraining?
+- Can the organization monitor model performance independently?
+- What is the vendor's process for handling bias reports or complaints?
+
+## Integration with Intake
+
+The vendor checklist is completed **alongside** the standard [Use Case Registration](/docs/intake-and-triage/use-case-registration) form. Vendor cases should not receive a lower risk tier simply because the AI is third-party. In fact, reduced visibility may warrant a **higher** tier.

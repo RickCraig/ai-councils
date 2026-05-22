@@ -1,0 +1,64 @@
+---
+title: Security Review
+description: AI-specific security considerations aligned to SAIF, OWASP LLM Top 10, and NIST SP 800-218A.
+---
+
+## Why AI Security Is Different
+
+AI systems introduce attack surfaces that traditional application security does not cover: training data poisoning, model theft, prompt injection, and adversarial inputs. A council that cannot speak credibly about security will quickly lose relevance.
+
+## Frameworks
+
+| Framework | Focus |
+|-----------|-------|
+| **Google SAIF** | Six core elements for securing AI systems |
+| **OWASP Top 10 for LLM Applications** | Practical risks for large language model applications |
+| **NIST SP 800-218A** | AI-specific extensions to the Secure Software Development Framework |
+| **NIST AI RMF (Measure, Manage)** | Risk measurement and management including security |
+
+## Security Review Checklist
+
+### Data Security
+
+- [ ] Training data is stored securely with access controls
+- [ ] Data pipelines are authenticated and integrity-checked
+- [ ] Sensitive data is encrypted at rest and in transit
+- [ ] Data provenance is documented
+
+### Model Security
+
+- [ ] Model artifacts are stored in a secure registry with access controls
+- [ ] Model integrity is verified before deployment (checksums, signatures)
+- [ ] Model access is restricted to authorized users and systems
+- [ ] Model outputs are validated before being used downstream
+
+### Application Security
+
+- [ ] Standard application security controls apply (OWASP Top 10)
+- [ ] Input validation is applied to user-provided prompts and data
+- [ ] Output filtering is applied to prevent information disclosure
+- [ ] Rate limiting and abuse detection are in place
+
+### LLM-Specific Risks (OWASP Top 10 for LLMs)
+
+- [ ] **Prompt injection.** System prompt protection and input sanitization
+- [ ] **Insecure output handling.** Outputs are treated as untrusted
+- [ ] **Training data poisoning.** Data provenance and integrity controls
+- [ ] **Model denial of service.** Resource limits and timeout controls
+- [ ] **Supply chain vulnerabilities.** Third-party model and library vetting
+- [ ] **Sensitive information disclosure.** Output filtering and access controls
+- [ ] **Insecure plugin design.** API and tool-use boundaries
+- [ ] **Excessive agency.** Scope and permission limits for agentic systems
+- [ ] **Overreliance.** User training and appropriate trust calibration
+- [ ] **Model theft.** Access controls and monitoring
+
+### Generative AI Specific
+
+- [ ] Content safety filters are in place
+- [ ] Grounding and attribution mechanisms reduce hallucination risk
+- [ ] Guardrails prevent generation of harmful, illegal, or off-topic content
+- [ ] Logging and monitoring capture usage patterns and anomalies
+
+## Integration with Council Review
+
+The security review checklist should be completed by the **security team or CISO representative** and submitted as part of the [Impact Assessment](/docs/review-and-assurance/impact-assessments) for Tier 3 cases. For Tier 2 cases, a lightweight security self-assessment is sufficient.

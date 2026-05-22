@@ -1,0 +1,66 @@
+---
+title: Red-Teaming
+description: Structured adversarial testing for AI systems to identify vulnerabilities before deployment.
+---
+
+## What Is AI Red-Teaming?
+
+AI red-teaming is the practice of **structured adversarial testing**, deliberately probing an AI system to discover failures, vulnerabilities, and harmful behaviors before users encounter them. NIST defines it as a structured testing effort to find flaws and vulnerabilities in an AI system, and Microsoft's AI Red Team has published detailed guidance on methodology.
+
+## When to Red-Team
+
+| Tier | Red-Teaming Requirement |
+|------|------------------------|
+| Tier 1 | Not required |
+| Tier 2 | Recommended for customer-facing generative AI |
+| Tier 3 | Required |
+| Tier 4 | Required before any exception request |
+
+## Red-Team Plan Template
+
+### 1. Scope
+
+- **System under test.** Name, version, and deployment context
+- **Attack surface.** Which interfaces and capabilities are in scope?
+- **Out of scope.** What should not be tested? (Production systems, third-party dependencies)
+
+### 2. Objectives
+
+What are you trying to find? Common objectives include:
+
+- Safety failures (harmful, dangerous, or illegal outputs)
+- Bias and fairness failures (discriminatory behavior)
+- Security vulnerabilities (prompt injection, data extraction, jailbreaks)
+- Reliability failures (hallucinations, inconsistencies, edge cases)
+- Policy violations (outputs that breach organizational guidelines)
+
+### 3. Team Composition
+
+Red teams should include:
+
+- Technical AI/ML engineers who understand the system
+- Security professionals experienced in adversarial testing
+- Domain experts who understand the real-world context
+- Diverse perspectives (different backgrounds, expertise, and thinking styles)
+
+### 4. Methodology
+
+- **Scenario-based testing.** Design realistic adversarial scenarios
+- **Structured prompts.** Use prompt libraries and known attack patterns
+- **Escalating difficulty.** Start with simple attacks, increase sophistication
+- **Document everything.** Record every test, input, output, and observation
+
+### 5. Findings and Remediation
+
+For each finding, document:
+
+- **Description** of the vulnerability or failure
+- **Severity** (critical / high / medium / low)
+- **Reproducibility** (always / sometimes / rare)
+- **Evidence** (screenshots, logs, input/output pairs)
+- **Recommended mitigation**
+- **Owner** and target remediation date
+
+### 6. Report to Council
+
+The red-team report is submitted to the council as part of the review package. The council uses it alongside the impact assessment and security review to make an informed decision.

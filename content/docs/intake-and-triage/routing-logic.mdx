@@ -1,0 +1,60 @@
+---
+title: Routing Logic
+description: How AI use cases are routed from intake to the right level of review.
+---
+
+## Routing Flow
+
+```text
+Use Case Submitted
+       │
+       ▼
+  Triage (Chair / Designee)
+       │
+       ├── Tier 1 (Low) ──────► Champion confirms ──► Approved
+       │
+       ├── Tier 2 (Medium) ───► Champion reviews ──► Approved / Escalated
+       │
+       ├── Tier 3 (High) ─────► Council review ───► Decision
+       │
+       └── Tier 4 (Prohibited) ► Executive sponsor ► Blocked / Exception
+```
+
+## Routing Rules
+
+| Tier | Primary Reviewer | Can Approve? | Escalation Path |
+|------|-----------------|-------------|-----------------|
+| **Tier 1** | Champion | Yes | Escalate to council if uncertain |
+| **Tier 2** | Champion + specialist (if needed) | Yes, with conditions | Escalate to council for complex cases |
+| **Tier 3** | Full council | Yes | Escalate to executive sponsor |
+| **Tier 4** | Executive sponsor | Block or grant exception | Board committee for organization-wide precedent |
+
+## Specialist Referral
+
+Some cases require specialist input regardless of tier:
+
+| Domain | Specialist | When to Refer |
+|--------|-----------|---------------|
+| **Security** | CISO / security team | Generative AI, internet-facing systems, systems processing sensitive data |
+| **Privacy** | DPO / privacy team | Personal data processing, cross-border data flows, new data sources |
+| **Legal** | Legal counsel | Regulated domains, contractual obligations, IP concerns |
+| **Accessibility** | Accessibility lead | Customer-facing systems, employee tools |
+| **Domain expert** | Varies | Healthcare AI → clinical expert, financial AI → risk officer, etc. |
+
+## Turnaround Times
+
+| Tier | Target Turnaround |
+|------|------------------|
+| Tier 1 | 2 business days |
+| Tier 2 | 5 business days |
+| Tier 3 | 10 business days (next council meeting) |
+| Tier 4 | Case-by-case |
+
+## Pre-Approved Patterns
+
+To reduce review overhead, the council can define **pre-approved patterns**, categories of use that have already been reviewed and approved at the policy level. Teams using a pre-approved pattern complete a simplified registration and champion confirmation, regardless of what the tiering worksheet suggests.
+
+Examples of pre-approved patterns:
+- Use of approved code-completion tools by engineering teams
+- Use of approved transcription tools for internal meetings
+- Standard analytics dashboards using aggregated, non-personal data

@@ -1,0 +1,75 @@
+---
+title: Risk Tiering
+description: A framework for classifying AI use cases by risk level to determine the appropriate review pathway.
+---
+
+## Why Tier
+
+Not every AI use case needs the same scrutiny. Tiering ensures that **low-risk cases move fast** while **high-risk cases get the attention they need**. This aligns with the EU AI Act's risk-based approach, NIST AI RMF's profiling, and NSW's risk-based referral model.
+
+## Four-Tier Model
+
+### Tier 1: Low Risk
+
+**Characteristics:**
+- Internal use only, no external stakeholder impact
+- Decision support (human makes final decision)
+- No personal or sensitive data
+- Well-established technique with known limitations
+- Low consequence of error
+
+**Examples:** Internal analytics dashboards, code-completion tools for developers, internal document search
+
+**Review pathway:** Self-serve with templates. Champion confirms.
+
+### Tier 2: Medium Risk
+
+**Characteristics:**
+- Customer-facing or employee-facing, but with human oversight
+- Uses personal data with appropriate consent
+- Moderate consequence of error
+- Established technique but new context for the organization
+
+**Examples:** Customer support chatbot with human escalation, employee performance analytics (advisory only), content recommendation
+
+**Review pathway:** Champion review with lightweight assessment.
+
+### Tier 3: High Risk
+
+**Characteristics:**
+- Affects access to services, benefits, opportunities, or rights
+- Automated or semi-automated decision-making with significant impact
+- Uses sensitive personal data
+- Operates in a regulated domain
+- Novel technique or novel application
+- High consequence of error
+
+**Examples:** Credit scoring, hiring screening, medical diagnosis support, benefits eligibility, facial recognition, predictive policing
+
+**Review pathway:** Full council review with impact assessment, model card, and security review.
+
+### Tier 4: Prohibited or Requires Executive Escalation
+
+**Characteristics:**
+- Prohibited by law or organizational policy
+- Unacceptable risk to human rights, safety, or organizational reputation
+- Exceeds the council's defined risk appetite
+
+**Examples:** Social scoring, real-time biometric identification in public spaces (where prohibited), covert surveillance, manipulative systems
+
+**Review pathway:** Escalated to executive sponsor. May be blocked.
+
+## Tiering Worksheet
+
+Use the risk indicators from the [Use Case Registration](/docs/intake-and-triage/use-case-registration) form to assign a tier:
+
+| Question | If Yes → Higher Tier |
+|----------|---------------------|
+| Affects access to services, benefits, or opportunities? | +1 tier |
+| Could cause physical, financial, or reputational harm? | +1 tier |
+| Operates in a regulated domain? | +1 tier |
+| Uses sensitive personal data? | +1 tier |
+| Automated decision-making without human review? | +1 tier |
+| Novel use of AI for the organization? | +1 tier |
+
+Start at Tier 1. For each "yes" answer, move up one tier (cap at Tier 4). The triage designee may adjust based on context and judgement.

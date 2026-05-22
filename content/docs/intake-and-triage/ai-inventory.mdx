@@ -1,0 +1,44 @@
+---
+title: AI Inventory
+description: Maintaining a living register of all AI systems across the organization.
+---
+
+## Why an Inventory
+
+An AI inventory is the **system of record** for all AI in your organization. Without one, the council is governing blind. Regulatory mandates are also making inventories non-optional. The US DOJ requires annual AI use-case inventories submitted to OMB, and the EU AI Act requires registration of high-risk systems.
+
+## What to Track
+
+At a minimum, each entry should capture:
+
+| Field | Description |
+|-------|------------|
+| **System ID** | Unique identifier |
+| **Name** | Human-readable name |
+| **Description** | What the system does, in plain language |
+| **Owner** | Business unit and named individual |
+| **Status** | Planning / Development / Pilot / Production / Retired |
+| **Risk tier** | Tier 1–4 (see [Risk Tiering](/docs/intake-and-triage/risk-tiering)) |
+| **Use case type** | Internal decision support / customer-facing / automated decision / generative AI / etc. |
+| **Data sources** | Key data inputs |
+| **Affected stakeholders** | Who is affected by the system's outputs |
+| **Approval status** | Pending / Approved / Approved with conditions / Not approved |
+| **Last review date** | When the system was last reviewed by the council or champion |
+| **Next review date** | When the system is next due for review |
+
+## Tooling Options
+
+The inventory can be maintained in:
+
+- A **spreadsheet** (simplest starting point)
+- A **project management tool** (e.g., Notion, Airtable) with structured fields
+- A **dedicated governance platform** (e.g., Credo AI, OneTrust, ModelOp) as the program matures
+
+The format matters less than the discipline of keeping it current.
+
+## Maintenance Cadence
+
+- **New entries:** Added at intake registration
+- **Status updates:** Updated by system owner when status changes
+- **Periodic review:** Full inventory reviewed quarterly by the council or chair
+- **Annual audit:** Complete inventory validated against actual AI use, cross-referenced with procurement and IT asset records

@@ -1,0 +1,57 @@
+---
+title: Model Cards and Datasheets
+description: Standardized documentation for AI models and the datasets they use.
+---
+
+## Purpose
+
+Model cards and datasheets are **standardized documentation formats** that make AI systems more transparent and reviewable. They were introduced by Google and Microsoft researchers and have become widely adopted as a governance best practice.
+
+## Model Cards
+
+A model card describes a trained model's intended use, performance characteristics, and limitations.
+
+### Model Card Template
+
+| Section | Contents |
+|---------|----------|
+| **Model name and version** | Identifier and version number |
+| **Model type** | Architecture and technique (e.g., transformer, gradient boosting) |
+| **Intended use** | Primary use cases the model was designed for |
+| **Out-of-scope use** | Use cases the model should not be used for |
+| **Training data** | Description of training data (source, size, date range, preprocessing) |
+| **Evaluation data** | Description of evaluation data and how it differs from training data |
+| **Performance metrics** | Key metrics (accuracy, precision, recall, F1, AUC, etc.) with confidence intervals |
+| **Disaggregated performance** | Performance broken down by relevant demographic or contextual groups |
+| **Limitations** | Known limitations, failure modes, and edge cases |
+| **Ethical considerations** | Potential harms, biases, and sensitive use contexts |
+| **Recommendations** | Guidance for users on responsible deployment |
+
+## Datasheets for Datasets
+
+A datasheet describes a dataset's provenance, composition, and intended use.
+
+### Datasheet Template
+
+| Section | Contents |
+|---------|----------|
+| **Dataset name and version** | Identifier and version |
+| **Purpose** | Why was this dataset created? |
+| **Creator** | Who created the dataset and on behalf of whom? |
+| **Composition** | What data is included? How many instances? What features? |
+| **Collection process** | How was the data collected? What consent was obtained? |
+| **Preprocessing** | What cleaning, filtering, or transformation was applied? |
+| **Intended use** | What tasks is this dataset appropriate for? |
+| **Not appropriate for** | What tasks should this dataset not be used for? |
+| **Distribution** | How is the dataset shared? Under what license? |
+| **Maintenance** | Who maintains the dataset? How are updates handled? |
+| **Legal and ethical** | Are there legal or ethical concerns? (Privacy, bias, representation) |
+
+## When to Require These
+
+| Artifact | When Required |
+|----------|--------------|
+| **Model card** | All Tier 3 cases. Recommended for Tier 2. |
+| **Datasheet** | When the model uses a custom or curated dataset. Not required for off-the-shelf vendor models (covered by vendor checklist). |
+
+For vendor-procured AI, request equivalent documentation from the vendor as part of the [Vendor Checklist](/docs/intake-and-triage/vendor-checklist).

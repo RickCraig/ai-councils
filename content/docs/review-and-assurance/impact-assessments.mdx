@@ -1,0 +1,80 @@
+---
+title: Impact Assessments
+description: A structured template for evaluating the potential effects of an AI system on people, the organization, and society.
+---
+
+## Purpose
+
+An impact assessment is the **core review document** for Tier 3 (high-risk) cases. It provides the council with structured evidence to make an informed decision. Microsoft requires impact assessments for responsible AI review; Canada's Algorithmic Impact Assessment uses 65 risk questions and 41 mitigation questions.
+
+## When to Use
+
+- All Tier 3 cases (mandatory)
+- Tier 2 cases where the champion or council requests deeper analysis
+- Any case involving automated decision-making that affects individuals
+
+## Assessment Template
+
+### 1. System Overview
+
+- System name and ID (from AI inventory)
+- Purpose and intended use
+- AI technique and architecture (high-level)
+- Development stage (design / development / pilot / production)
+
+### 2. Stakeholder Analysis
+
+- **Primary users.** Who operates or interacts with the system?
+- **Affected individuals.** Who is subject to the system's outputs or decisions?
+- **Vulnerable groups.** Are any affected groups particularly vulnerable? (children, elderly, minorities, economically disadvantaged)
+- **Third parties.** Are there broader societal or environmental effects?
+
+### 3. Benefits and Harms
+
+| Category | Potential Benefits | Potential Harms | Likelihood | Severity |
+|----------|-------------------|-----------------|------------|----------|
+| Individuals | | | | |
+| Groups / communities | | | | |
+| Organization | | | | |
+| Society / environment | | | | |
+
+### 4. Fairness and Bias
+
+- What protected characteristics are relevant to this use case?
+- Has the training data been assessed for representation and bias?
+- What fairness metrics will be used?
+- How will fairness be monitored after deployment?
+
+### 5. Transparency and Explainability
+
+- Are affected individuals informed that AI is being used?
+- Can the system's outputs be explained to affected individuals?
+- Is there a process for individuals to seek recourse or challenge a decision?
+
+### 6. Privacy and Data Protection
+
+- Has a Data Protection Impact Assessment (DPIA) been completed?
+- What personal data is processed and under what legal basis?
+- How is data minimization achieved?
+
+### 7. Security
+
+- Has a security review been completed? (see [Security Review](/docs/review-and-assurance/security-review))
+- What adversarial threats have been considered?
+
+### 8. Human Oversight
+
+- What level of human oversight is in place? (see [Human Oversight](/docs/review-and-assurance/human-oversight))
+- Is the level of oversight proportionate to the risk?
+
+### 9. Mitigations
+
+For each identified harm, document:
+- The mitigation measure
+- Who is responsible for implementing it
+- When it will be in place
+- How its effectiveness will be monitored
+
+### 10. Recommendation
+
+The assessment author's recommendation to the council: Approve / Approve with conditions / Do not approve / Need more information.

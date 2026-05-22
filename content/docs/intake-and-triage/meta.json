@@ -1,0 +1,4 @@
+{
+  "title": "Intake & Triage",
+  "pages": ["index", "ai-inventory", "use-case-registration", "risk-tiering", "routing-logic", "vendor-checklist"]
+}

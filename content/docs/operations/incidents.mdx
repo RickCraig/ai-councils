@@ -1,0 +1,77 @@
+---
+title: Incidents
+description: Managing AI-specific incidents and near-misses.
+---
+
+## What Counts as an AI Incident?
+
+An AI incident is any event where an AI system causes or contributes to harm, near-harm, or a significant deviation from expected behavior. Examples:
+
+- A model produces biased or discriminatory outputs in production
+- An AI system makes a consequential error affecting a real person
+- A data breach involves training data or model outputs
+- A generative AI system produces harmful, illegal, or reputation-damaging content
+- A system fails in a way that disrupts business operations
+- A near-miss is identified before harm occurs
+
+## Incident Response Process
+
+### 1. Report
+
+Anyone can report an AI incident or near-miss. Channels should include:
+
+- A dedicated email or form
+- The champion network (first point of contact in most teams)
+- Existing incident management tools (e.g., ServiceNow, PagerDuty)
+
+### 2. Triage
+
+The council chair or on-call designee triages the incident:
+
+| Severity | Description | Response Time |
+|----------|------------|---------------|
+| **Critical** | Active harm to individuals, legal exposure, public-facing | Immediate |
+| **High** | Significant risk of harm, regulatory implications | Within 24 hours |
+| **Medium** | Degraded performance, internal impact | Within 3 business days |
+| **Low** | Minor anomaly, no direct harm | Next scheduled review |
+
+### 3. Contain
+
+- Stop the system from causing further harm (pause, roll back, add human review)
+- Notify affected individuals if required
+- Preserve evidence (logs, inputs, outputs)
+
+### 4. Investigate
+
+- What happened?
+- What was the root cause?
+- Was this foreseeable? Was it in the risk assessment?
+- What controls failed or were missing?
+
+### 5. Remediate
+
+- Fix the immediate issue
+- Update controls, monitoring, and risk assessment
+- Implement preventive measures
+
+### 6. Review and Learn
+
+- Present findings at the next council meeting
+- Update the incident log
+- Update policies, templates, or training if needed
+- Share anonymized lessons learned with the champion network
+
+## Incident Log Template
+
+| Field | Description |
+|-------|------------|
+| **Incident ID** | Unique identifier |
+| **Date reported** | When the incident was reported |
+| **System** | AI system name and ID |
+| **Severity** | Critical / High / Medium / Low |
+| **Description** | What happened |
+| **Impact** | Who was affected and how |
+| **Root cause** | What went wrong |
+| **Actions taken** | Containment and remediation steps |
+| **Lessons learned** | What the organization should do differently |
+| **Status** | Open / Investigating / Resolved / Closed |

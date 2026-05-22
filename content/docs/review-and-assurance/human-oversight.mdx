@@ -1,0 +1,60 @@
+---
+title: Human Oversight
+description: Ensuring meaningful human control over AI systems, proportionate to risk.
+---
+
+## Why Human Oversight Matters
+
+Human oversight is one of the most consistently referenced principles across international frameworks. OECD, UNESCO, the EU AI Act, and NIST AI RMF all emphasize it. The EU AI Act specifically requires "appropriate human oversight measures" for high-risk AI systems.
+
+But oversight must be **meaningful**, not performative. A human who rubber-stamps AI outputs without understanding them provides no real oversight.
+
+## Levels of Human Oversight
+
+| Level | Description | Appropriate For |
+|-------|------------|-----------------|
+| **Human-in-the-loop** | A human reviews and approves every AI output before it takes effect | High-risk decisions: hiring, credit, medical diagnosis, benefits eligibility |
+| **Human-on-the-loop** | A human monitors AI outputs and can intervene, but the system acts by default | Medium-risk systems: content moderation, fraud detection, customer routing |
+| **Human-over-the-loop** | A human sets parameters, reviews aggregate performance, and can modify or shut down the system | Lower-risk systems: recommendations, analytics, internal automation |
+| **Autonomous** | No routine human oversight of individual decisions | Only appropriate for Tier 1, low-consequence, well-understood systems |
+
+## Designing Effective Oversight
+
+### 1. Match oversight to risk
+
+The level of human oversight should be proportionate to the consequences of error. Use the [Risk Tiering](/docs/intake-and-triage/risk-tiering) to guide the decision.
+
+### 2. Ensure the human can actually oversee
+
+Oversight is only meaningful if the human:
+- Has the **expertise** to evaluate the AI's output
+- Has the **time** to review at the volume required
+- Has the **authority** to override or stop the system
+- Has access to **explanations** of why the AI produced its output
+- Is not subject to **automation bias** (over-trusting the AI)
+
+### 3. Design for disagreement
+
+The system should make it easy for the human to **disagree** with the AI. If overriding the AI is difficult, time-consuming, or socially costly, oversight is undermined.
+
+### 4. Monitor the oversight itself
+
+Track:
+- How often humans override the AI
+- Whether override rates change over time (declining rates may indicate automation bias)
+- Whether overrides correlate with better outcomes
+
+## Human Oversight Worksheet
+
+Include in the impact assessment:
+
+| Question | Response |
+|----------|----------|
+| What level of human oversight is in place? | |
+| Who performs the oversight? (Role, expertise) | |
+| What information does the overseer receive? | |
+| Can the overseer override the AI? How? | |
+| What is the expected volume of decisions? | |
+| Can the overseer realistically review this volume? | |
+| How will automation bias be mitigated? | |
+| How will oversight effectiveness be monitored? | |
