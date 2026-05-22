@@ -1,0 +1,92 @@
+---
+title: Making the Case
+description: How to build the business case for an AI Council and get executive sponsorship.
+---
+
+The hardest part of setting up an AI Council is often not the governance design. It is getting the organization to commit. This page helps you build the argument, handle objections, and find your first sponsor.
+
+## Why Leaders Resist
+
+Before you pitch, understand what you are up against. Common reasons leaders hesitate:
+
+- **"It will slow us down."** The most frequent objection. Teams are shipping AI fast and governance feels like friction.
+- **"We don't have enough AI to justify it."** Leaders underestimate how much AI is already in use, especially purchased tools and embedded features.
+- **"We already have compliance processes."** Existing risk, legal, or IT review processes may not cover AI-specific concerns like bias, explainability, or model drift.
+- **"Nobody else in our industry does this."** This is increasingly untrue, but the perception persists.
+
+Understanding these objections in advance lets you address them directly rather than being caught off guard.
+
+## The Business Case
+
+Frame the council around outcomes leadership cares about. Pick the arguments that resonate most with your organization.
+
+### Risk reduction
+
+AI failures are expensive. Biased hiring tools lead to lawsuits. Poorly governed chatbots leak sensitive data. A model that quietly degrades costs revenue before anyone notices. The council is the mechanism that catches these problems early, before they become incidents.
+
+If your organization has already had an AI-related incident or near-miss, lead with it. Nothing makes the case like a concrete example.
+
+### Regulatory readiness
+
+Regulation is no longer hypothetical. The [EU AI Act](/docs/standards-and-regulations/eu-ai-act) is in force, with AI literacy obligations applying from February 2025 and full applicability from August 2026. US federal agencies are required to inventory AI use cases annually. Sector-specific rules in healthcare, finance, and government are tightening. A council provides the organizational structure to meet these obligations without scrambling.
+
+### Speed through clarity
+
+This is your counter to "it will slow us down." Without governance, every AI project invents its own review process. Teams spend time negotiating with legal, security, and compliance on an ad-hoc basis. A council establishes clear paths: low-risk cases self-serve, medium-risk cases get lightweight review, and only high-risk cases need full scrutiny. The result is faster deployment for the 80% of cases that are straightforward.
+
+The [pre-approved patterns](/docs/intake-and-triage/routing-logic) concept is especially useful here. Once the council approves a category of use (e.g., code-completion tools for developers), teams in that category skip individual review entirely.
+
+### Visibility into what you have
+
+Most organizations cannot answer the question "what AI systems are we running?" A council establishes an [AI inventory](/docs/intake-and-triage/ai-inventory), giving leadership visibility into the full portfolio. This matters for risk management, vendor consolidation, budget allocation, and board reporting.
+
+### Stakeholder trust
+
+Customers, employees, regulators, and board members are increasingly asking "how do you govern AI?" A council with a charter, documented decisions, and a track record provides a credible answer. Organizations like [Microsoft](/docs/real-world-patterns/enterprise) and [Salesforce](/docs/real-world-patterns/enterprise) publish their governance structures and transparency reports for exactly this reason.
+
+## Finding Your First Sponsor
+
+The council needs an executive sponsor: a C-suite or senior leader who is accountable to the board and willing to allocate resources. See [Roles and Membership](/docs/foundation/roles-and-membership) for the full role definition.
+
+### Who to approach
+
+Look for a leader who:
+
+- **Owns AI risk** (explicitly or implicitly). The CTO, CDO, CISO, or Chief Digital Officer are common choices.
+- **Has been burned.** A leader who has dealt with an AI incident, a compliance finding, or a difficult board question about AI is often receptive.
+- **Is building an AI strategy.** Leaders who are investing in AI adoption often recognize that governance enables scale.
+- **Sits on the risk or audit committee.** These leaders understand the value of structured oversight.
+
+### How to pitch
+
+Keep it short. A one-page brief or a 15-minute conversation is better than a slide deck. Cover:
+
+1. **The problem.** We have X AI systems in use (or we don't know how many, which is the problem). We have no consistent process for assessing risk, and regulation is coming.
+2. **The ask.** Stand up a lightweight AI Council. 6-8 people, meeting fortnightly, with a clear charter and intake process.
+3. **The time commitment.** Monthly briefing from the council chair, plus escalation availability. Not a second job.
+4. **The alternative.** Without a council, we are managing AI risk through ad-hoc conversations and hoping nothing goes wrong.
+
+### If the answer is "not now"
+
+If you cannot get a full council approved, start smaller:
+
+- **Inventory first.** Propose just cataloging what AI systems exist. This is low-cost, low-controversy, and often reveals enough to make the case for governance.
+- **Policy first.** Draft a lightweight AI acceptable-use policy and get it approved. This establishes a governance baseline without requiring a standing committee.
+- **Pilot first.** Offer to run a governance review on a single high-profile AI project as a proof of concept. Document the process and results, then use them to justify scaling.
+
+Each of these creates the evidence base for a future pitch.
+
+## Handling Objections
+
+| Objection | Response |
+|-----------|----------|
+| "It will slow innovation" | The council creates fast paths for low-risk cases and pre-approves common patterns. Without it, every project negotiates ad-hoc review. That is what actually slows things down. |
+| "We don't have enough AI" | Do a quick inventory. Most organizations are surprised by what they find once they count purchased tools, embedded AI features, and prototype projects. |
+| "Legal/compliance already covers this" | Existing processes rarely address AI-specific risks: bias, explainability, model drift, prompt injection, training data governance. The council fills these gaps, not replaces existing review. |
+| "We can't staff another committee" | Start with 6 people meeting fortnightly for 90 minutes. Champions handle the volume; the council only reviews high-risk cases. The time commitment is modest relative to the risk. |
+| "Just write a policy" | A policy without a body to interpret, enforce, and update it becomes shelfware. The council is what makes the policy operational. |
+| "Our competitors aren't doing this" | Many are, quietly. Microsoft, IBM, Salesforce, and Google all operate AI governance bodies. [The EU AI Act](/docs/standards-and-regulations/eu-ai-act) will make governance non-optional for many organizations by 2026. |
+
+## Next Steps
+
+Once you have sponsorship, move to [Your First 30 Days](/docs/getting-started/first-30-days) for a week-by-week plan to stand up the council.

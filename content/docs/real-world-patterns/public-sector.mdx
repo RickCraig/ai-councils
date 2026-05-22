@@ -5,59 +5,87 @@ description: AI governance patterns from NSW, Yale, US DOJ, and government playb
 
 ## NSW (New South Wales, Australia)
 
+NSW operates one of the most clearly documented public-sector AI governance models.
+
 ### Structure
 
-- **AI Review Committee.** Reviews only high-risk systems
-- **Risk-informed guidance.** Agencies retain final accountability; the committee provides guidance, not mandates
-- **Risk-based referral model.** Only high-risk systems are escalated to the central committee
+- **[AI Review Committee](https://www.digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/ai-review-committee) (AIRC).** A central body that reviews only high-risk and critical-risk AI systems. Referrals are coordinated through the NSW Office for AI.
+- **Agency accountability.** Agencies retain final accountability for their AI systems. The AIRC provides expert advice, not mandates.
+- **Risk-based referral.** The [AI Assessment Framework](https://www.digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/nsw-ai-assessment-framework) automatically identifies which systems must be referred to the AIRC. Low-risk systems move without central review.
 
 ### Key Practices
 
-- The AI Assessment Framework (AIAF) is a self-assessment tool used by agencies
-- The committee focuses on **guidance and risk-informed review**, not approval authority
+- **Mandatory self-assessment.** The AI Assessment Framework is mandatory for all NSW Government AI use under [Circular DCS-2024-04](https://www.digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/nsw-ai-assessment-framework). It replaced earlier, more subjective assessments with a faster, standards-aligned approach that NSW reports can reduce assessment time from days to under 30 minutes for low-risk systems.
+- **Five ethics principles.** The framework is structured around community benefit, fairness, privacy and security, transparency, and accountability.
+- **Assurance integration.** AI assurance is embedded in the broader NSW Digital Assurance Framework, with projects exceeding $5 million receiving additional central oversight.
+- **Standards alignment.** The framework is aligned with the Commonwealth National Framework for the Assurance of AI in Government and references the EU AI Act.
 
 ### Lesson for Your Council
 
-NSW demonstrates the **referral model**: the central body reviews only what truly needs central review. Everything else is handled closer to the team. This prevents bottlenecks and keeps the council focused on high-impact cases.
+NSW demonstrates the **referral model**: the central body reviews only what truly needs central review. Everything else is handled closer to the team. This prevents bottlenecks and keeps the council focused on high-impact cases. The mandatory-but-lightweight self-assessment is a pattern worth borrowing.
 
 ## Yale University
 
+Yale's AI governance reflects the reality of a large, decentralized institution. Rather than a single AI council, Yale operates through multiple overlapping governance structures, each authoritative in its own domain.
+
 ### Structure
 
-- **AI Steering Committee.** Provides harmonized oversight across the university
-- **AI Governance Committee.** Handles sensitive approval requests referred by other governance bodies
-- **Specialist committees.** Separate committees for research, health data, healthcare AI, and advisory review
+- **[Yale Task Force on Artificial Intelligence](https://provost.yale.edu/yale-task-force-artificial-intelligence) (YTAI).** Assembled by Provost Scott Strobel in January 2024 to review AI activity through a university-wide lens. The Task Force published its [report](https://ai.yale.edu/report-of-the-yale-task-force-on-artificial-intelligence) in June 2024, establishing strategic direction for AI use across teaching, research, and operations.
+- **IT Governance Committees.** Yale's [Academic IT Steering Committee and Research IT Steering Committee](https://its.yale.edu/about-it/it-committees/governance-committees) provide oversight for systems supporting educational and research missions respectively, including AI tools.
+- **Digital/AI Implementation Advisory Committee (DAIAD).** Performs comprehensive review of AI assessments and provides lifecycle oversight of AI solutions, ensuring vetting and risk evaluation before deployment.
+- **Healthcare AI governance.** The [Joint Health Data Governance Council](https://medicine.yale.edu/news/beyond-sterling-hall/newsletter-issue/beyond-sterling-hall-ai-is-a-natural/) and Yale New Haven Health System's Enterprise Healthcare AI Governance process manage clinical AI tools through a separate, domain-specific review process.
+- **Research oversight.** Institutional Review Boards govern AI use involving human subjects research.
 
 ### Key Practices
 
-- **Federated governance.** Multiple committees with distinct scopes, connected by shared principles and escalation paths
-- Specialist committees remain authoritative in their own domains
+- **Provost-level sponsorship.** The YTAI was commissioned directly by the Provost, giving AI governance executive-level visibility and authority.
+- **Domain-specific authority.** Healthcare AI, research AI, and administrative AI each have their own governance paths. There is no single committee that reviews everything.
+- **[Centralized guidance](https://ai.yale.edu/guidance).** The AI at Yale site provides university-wide guidance, tool recommendations, and an AI review framework for system selection, creating a shared foundation even though governance is distributed.
 
 ### Lesson for Your Council
 
-Yale shows that federated governance works well in **large, diverse organizations** where a single committee cannot cover all domains. The key is clear scope boundaries and defined escalation between committees.
+Yale shows what federated governance looks like in practice at a **large, diverse institution**. The key insight is that multiple governance bodies can coexist effectively when each has a clear domain, a shared set of principles, and a connection to executive leadership. Organizations with distinct business units or regulated domains (healthcare, research, finance) should consider this pattern.
 
 ## US Department of Justice
 
+The DOJ provides one of the clearest examples of **inventory-as-governance** in the US federal government.
+
+### Structure
+
+The DOJ AI governance operates within the framework established by [Executive Order 13960](https://www.justice.gov/ai/ai-inventory) (Promoting the Use of Trustworthy Artificial Intelligence in the Federal Government, December 2020) and OMB Memorandum [M-25-21](https://www.insidegovernmentcontracts.com/2025/04/omb-issues-first-trump-2-0-era-requirements-for-ai-use-and-procurement-by-federal-agencies/) (Accelerating Federal Use of AI through Innovation, Governance, and Public Trust, April 2025).
+
 ### Key Practices
 
-- **Annual AI inventory.** AI use cases are inventoried annually, submitted to OMB, and releasable entries are published
-- Inventory is explicitly tied to **governance and public trust**
+- **Annual AI inventory.** The DOJ inventories all AI use cases annually, submits the inventory to OMB, and [publishes releasable entries](https://www.justice.gov/ai/ai-inventory) on its website. The [2025 consolidated federal inventory](https://github.com/ombegov/2025-Federal-Agency-AI-Use-Case-Inventory) is published on GitHub.
+- **Public transparency.** Disclosed government AI use across all federal agencies [increased by 70% in 2025](https://fedscoop.com/disclosed-government-ai-use-increased-in-2025-omb/), demonstrating that inventory discipline drives visibility.
+- **Governance framing.** The inventory is explicitly tied to advancing governance, accelerating innovation, and ensuring public trust.
 
 ### Lesson for Your Council
 
-The DOJ example shows that **inventory discipline** is not just compliance. It is a governance practice that builds internal and external trust.
+The DOJ example shows that **inventory discipline** is not just compliance. It is a governance practice that builds internal and external trust. Publishing your AI inventory (even internally) forces accountability and surfaces systems that might otherwise operate without oversight.
 
 ## Government Playbooks
 
-Several governments have published AI playbooks that are useful references:
+Several governments have published AI playbooks that serve as useful references for council design:
 
 | Country | Resource | Focus |
 |---------|----------|-------|
-| **UK** | Government AI Playbook | Public-sector AI implementation guidance |
-| **Singapore** | Responsible AI Playbook + AI Verify | Principles and testing framework |
-| **Canada** | Algorithmic Impact Assessment | Mandatory risk assessment for automated decisions |
-| **Australia (NSW)** | AI Assessment Framework | Risk self-assessment for agencies |
-| **Australia (Queensland)** | FAIRA | Transparency and risk identification |
+| **UK** | [AI Playbook for the UK Government](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government) | Public-sector AI implementation guidance |
+| **Singapore** | [Responsible AI Playbook](https://playbooks.aip.gov.sg/responsibleai/) + [AI Verify](https://aiverifyfoundation.sg/) | Principles and testing framework |
+| **Canada** | [Algorithmic Impact Assessment](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/algorithmic-impact-assessment.html) | Mandatory risk assessment for automated decisions |
+| **Australia (NSW)** | [AI Assessment Framework](https://www.digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/nsw-ai-assessment-framework) | Risk self-assessment for agencies |
+| **Australia (Queensland)** | [FAIRA](https://www.forgov.qld.gov.au/information-technology/queensland-government-enterprise-architecture-qgea/qgea-directions-and-guidance/qgea-policies-standards-and-guidelines/faira-framework) | Transparency and risk identification |
 
 These playbooks are especially useful as **input to your council's intake and review templates**.
+
+## Sources
+
+- NSW AI Review Committee: [digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/ai-review-committee](https://www.digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/ai-review-committee)
+- NSW AI Assessment Framework: [digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/nsw-ai-assessment-framework](https://www.digital.nsw.gov.au/policy/artificial-intelligence/ai-governance-assurance-and-frameworks/nsw-ai-assessment-framework)
+- Yale Task Force on Artificial Intelligence: [provost.yale.edu/yale-task-force-artificial-intelligence](https://provost.yale.edu/yale-task-force-artificial-intelligence)
+- Report of the Yale Task Force on Artificial Intelligence: [ai.yale.edu/report-of-the-yale-task-force-on-artificial-intelligence](https://ai.yale.edu/report-of-the-yale-task-force-on-artificial-intelligence)
+- Yale AI Guidance: [ai.yale.edu/guidance](https://ai.yale.edu/guidance)
+- Yale IT Governance Committees: [its.yale.edu/about-it/it-committees/governance-committees](https://its.yale.edu/about-it/it-committees/governance-committees)
+- DOJ AI Inventory: [justice.gov/ai/ai-inventory](https://www.justice.gov/ai/ai-inventory)
+- 2025 Federal Agency AI Use Case Inventory (GitHub): [github.com/ombegov/2025-Federal-Agency-AI-Use-Case-Inventory](https://github.com/ombegov/2025-Federal-Agency-AI-Use-Case-Inventory)
+- FedScoop, "Disclosed government AI use increased by 70% in 2025": [fedscoop.com/disclosed-government-ai-use-increased-in-2025-omb/](https://fedscoop.com/disclosed-government-ai-use-increased-in-2025-omb/)

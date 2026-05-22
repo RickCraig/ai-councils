@@ -1,49 +1,163 @@
 ---
-title: Vendor Checklist
-description: Additional governance considerations when procuring AI systems from third-party vendors.
+title: Governing Purchased AI
+description: A lifecycle guide for governing AI systems procured from third-party vendors, from selection through ongoing monitoring and renewal.
 ---
 
-## Why a Separate Checklist
+Most organizations are not building AI from scratch. They are buying it: Microsoft Copilot, Salesforce Einstein, ServiceNow AI, and dozens of smaller tools embedded in existing platforms. For many organizations, vendor governance is the governance challenge.
 
-Vendor-procured AI introduces risks that in-house development does not: reduced visibility into model design, data practices, and security posture. The standard intake process applies, but the following additional questions should be addressed.
+Purchased AI introduces risks that in-house development does not: reduced visibility into how models are trained, limited control over data practices, dependency on vendor update cycles, and contractual complexity around liability and exit. This page covers the full lifecycle of governing purchased AI, not just the initial assessment.
 
-## Vendor Assessment Questions
+## The Vendor AI Lifecycle
 
-### Transparency and Documentation
+Governing purchased AI is not a single checkpoint. It spans five phases:
 
-- Does the vendor provide a model card or equivalent documentation?
-- Can the vendor explain how the model was trained, what data was used, and what its known limitations are?
-- Does the vendor publish bias testing or fairness audit results?
-- Is the vendor transparent about sub-processors and third-party model use?
+1. **Selection** - Identifying and evaluating vendor AI before procurement
+2. **Assessment** - Completing the governance intake alongside vendor-specific questions
+3. **Onboarding** - Configuring, deploying, and communicating the new tool
+4. **Ongoing monitoring** - Tracking performance, compliance, and vendor changes
+5. **Renewal or exit** - Deciding whether to continue, renegotiate, or replace
 
-### Data Practices
+## Phase 1: Selection
 
-- Where is data stored and processed? (Jurisdictions and data residency)
-- Is customer data used for model training or improvement?
-- Can the organization opt out of data use for model training?
-- What data retention and deletion policies does the vendor follow?
-- How does the vendor handle data subject rights (access, deletion, correction)?
+Before procurement begins, establish minimum governance requirements that any vendor AI must meet. This prevents teams from signing contracts for tools that the council would later block.
+
+### Minimum requirements
+
+Define organizational minimums that apply to all vendor AI. Common examples:
+
+- Vendor must provide documentation on model design, training data, and known limitations
+- Customer data must not be used for model training without explicit opt-in
+- Data must be stored in approved jurisdictions
+- Vendor must have SOC 2, ISO 27001, or equivalent security certification
+- Contract must include audit rights and clear exit terms
+
+Publish these requirements so that procurement teams and business units can screen vendors early, before investing time in evaluation.
+
+### Shadow AI
+
+The biggest governance gap with purchased AI is tools adopted without procurement involvement: a team signs up for a free tier, a manager expenses a SaaS subscription, or AI features are silently enabled in an existing platform. Your intake process should account for this. Champions are the front line for identifying shadow AI in their teams.
+
+## Phase 2: Assessment
+
+The standard [Use Case Registration](/docs/intake-and-triage/use-case-registration) form applies to vendor AI just as it does to in-house systems. The following additional questions should be completed alongside it.
+
+### Transparency and documentation
+
+- [ ] Vendor provides a model card or equivalent documentation
+- [ ] Vendor can explain how the model was trained, what data was used, and what its known limitations are
+- [ ] Vendor publishes bias testing or fairness audit results
+- [ ] Vendor is transparent about sub-processors and third-party model use (e.g., does the vendor use OpenAI, Anthropic, or other foundation model providers under the hood?)
+
+### Data practices
+
+- [ ] Data storage and processing locations are documented (jurisdictions and data residency)
+- [ ] Customer data use for model training is clearly disclosed
+- [ ] Organization can opt out of data use for model training
+- [ ] Data retention and deletion policies are documented
+- [ ] Vendor handles data subject rights (access, deletion, correction)
+- [ ] Data flows between the vendor and third parties are mapped
 
 ### Security
 
-- Does the vendor have SOC 2, ISO 27001, or equivalent certification?
-- What adversarial testing has the vendor performed (red-teaming, prompt injection testing)?
-- How does the vendor handle vulnerability disclosure and patching?
-- What is the vendor's incident response process?
+- [ ] Vendor holds SOC 2, ISO 27001, or equivalent certification
+- [ ] Vendor has performed adversarial testing (red-teaming, prompt injection testing for generative AI)
+- [ ] Vulnerability disclosure and patching process is documented
+- [ ] Vendor has a defined incident response process and notification timeline
 
 ### Contractual
 
-- Do the contract terms provide audit rights?
-- Are liability and indemnification terms clear for AI-specific harms?
-- Can the organization exit the contract and retrieve its data?
-- Are service levels defined for model performance and availability?
+- [ ] Contract provides audit rights
+- [ ] Liability and indemnification terms address AI-specific harms (bias, hallucination, data leakage)
+- [ ] Organization can exit the contract and retrieve or delete its data
+- [ ] Service levels cover model performance and availability, not just uptime
+- [ ] Contract addresses what happens when the vendor changes or discontinues the model
 
-### Ongoing Governance
+### Risk tiering for vendor AI
 
-- Does the vendor notify customers of model updates or retraining?
-- Can the organization monitor model performance independently?
-- What is the vendor's process for handling bias reports or complaints?
+Vendor cases should not receive a lower risk tier simply because the AI is third-party. In fact, reduced visibility into model internals may warrant a **higher** tier than an equivalent in-house system. Apply [Risk Tiering](/docs/intake-and-triage/risk-tiering) based on the impact of the system, not on who built it.
 
-## Integration with Intake
+## Phase 3: Onboarding
 
-The vendor checklist is completed **alongside** the standard [Use Case Registration](/docs/intake-and-triage/use-case-registration) form. Vendor cases should not receive a lower risk tier simply because the AI is third-party. In fact, reduced visibility may warrant a **higher** tier.
+After assessment and approval, onboarding is where many vendor AI deployments quietly go wrong. Configuration choices made during setup can change the risk profile of a tool that was assessed in a different configuration.
+
+### Configuration review
+
+- Confirm that the deployed configuration matches what was assessed (e.g., data sharing settings, feature flags, integration scope)
+- Document any customizations, fine-tuning, or prompt engineering applied on top of the vendor system
+- Verify that guardrails, content filters, or access controls recommended during assessment are actually enabled
+
+### User communication
+
+- Inform affected users that AI is being used, what it does, and what its limitations are
+- Provide guidance on appropriate use (what the tool is for and what it is not for)
+- Establish a feedback channel for users to report issues, errors, or concerns
+
+### Inventory entry
+
+Add the system to the [AI Inventory](/docs/intake-and-triage/ai-inventory) with vendor-specific fields: vendor name, contract owner, contract renewal date, and data processing locations.
+
+## Phase 4: Ongoing Monitoring
+
+Vendor AI requires monitoring just like in-house systems, but with the added complexity that the vendor controls the model. See [Monitoring](/docs/operations/monitoring) for the general monitoring framework. For vendor AI, pay additional attention to:
+
+### Vendor-initiated changes
+
+Vendors update models regularly. These updates can change performance, behavior, and risk profile without any action on your part.
+
+- Track vendor release notes and model update announcements
+- Re-assess risk when the vendor makes a material change (new model version, changed data practices, new sub-processor)
+- Include a "vendor change review" trigger in your [Policy Refresh](/docs/operations/policy-refresh) cycle
+
+### Performance monitoring with limited access
+
+For many vendor tools, you cannot inspect model internals. Focus on what you can observe:
+
+- Output quality and consistency over time
+- User feedback and complaint volume
+- Error rates and edge case frequency
+- Comparison against the vendor's stated performance benchmarks
+
+### Compliance drift
+
+Vendor terms of service and data practices change. Contracts that were compliant at signing may drift out of compliance.
+
+- Review vendor terms and privacy policies at each contract renewal
+- Monitor for regulatory changes that affect your use of the vendor's AI (e.g., new data residency requirements, EU AI Act obligations for deployers)
+- Track whether the vendor's certifications (SOC 2, ISO 27001) remain current
+
+## Phase 5: Renewal or Exit
+
+Contract renewal is a governance checkpoint, not just a procurement event.
+
+### Renewal review
+
+At each renewal cycle, the contract owner (with input from the champion or council) should review:
+
+- Has the system's risk profile changed since initial assessment?
+- Have vendor terms, data practices, or model capabilities changed materially?
+- Is the organization still using the system as originally assessed, or has usage expanded?
+- Are there unresolved incidents, complaints, or performance issues?
+- Does the system still meet the organization's minimum vendor requirements?
+
+If usage has expanded beyond the original assessment scope, treat the expansion as a new intake case.
+
+### Exit planning
+
+Before signing any vendor AI contract, ensure you have answers to:
+
+- Can you export your data? In what format and timeframe?
+- What happens to data the vendor has already processed or used for training?
+- What is the transition plan if the vendor discontinues the product?
+- Are there contractual penalties for early exit?
+
+Document exit plans in the AI inventory so they are available if needed.
+
+## Common Vendor AI Scenarios
+
+| Scenario | Governance approach |
+|----------|-------------------|
+| **Enterprise copilot** (Copilot, Gemini for Workspace) | Organization-wide assessment at rollout. Define acceptable use policy. Champion handles team-level questions. Tier 2 for general use, Tier 3 if connected to sensitive data. |
+| **Embedded AI features** (Salesforce Einstein, ServiceNow AI) | Assess when features are first enabled, not when the platform was purchased. Features enabled by default need proactive review. |
+| **Point solution** (AI transcription, AI writing tool) | Standard intake. Risk tier based on data sensitivity and audience. Watch for shadow adoption of free tiers. |
+| **Foundation model API** (OpenAI, Anthropic, Google APIs) | Tier 3 by default. Assess each application built on the API, not just the API access itself. Security review required. |
+| **AI in procurement tools** (resume screening, vendor matching) | Tier 3. Affects access to opportunities. Impact assessment and human oversight required. |
