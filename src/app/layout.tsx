@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import "fumadocs-ui/style.css";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <body className="flex min-h-screen flex-col">
         <RootProvider>{children}</RootProvider>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
