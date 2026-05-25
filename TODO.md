@@ -8,12 +8,6 @@ The Templates Library links to documentation pages with templates embedded in pr
 
 **Recommendation:** Create standalone downloadable templates (Markdown, Word, or spreadsheet formats) for the most-used artifacts: charter, intake form, risk tiering worksheet, AI inventory, impact assessment, decision log, incident log, and vendor assessment checklist. At minimum, add clearly marked "copy this template" blocks on each page that visually separate the template from the explanatory text.
 
-## No Visual Journey or Site Map
-
-The sidebar organizes content by section, but there is no visual representation of how the pieces fit together. A governance lifecycle diagram (intake → triage → review → approve → monitor → refresh) would help readers understand the system as a whole.
-
-**Recommendation:** Add a visual flow diagram to the docs landing page (`content/docs/index.mdx`) or create a dedicated "How It All Fits Together" page. Even a simple SVG or Mermaid diagram showing the lifecycle would help. Consider adding it to the home page as well.
-
 ## Generative AI Coverage Is Scattered
 
 GenAI-specific guidance is spread across Security Review, Red-Teaming, NIST AI RMF, Risk Tiering, and Governing Purchased AI without a unified page. A leader asking "how do I govern ChatGPT/Copilot usage?" has to piece it together.

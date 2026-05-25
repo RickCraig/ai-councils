@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LifecycleDiagram } from "@/components/lifecycle-diagram";
 
 export default function HomePage() {
   return (
@@ -26,6 +27,20 @@ export default function HomePage() {
           >
             Browse the Toolkit
           </Link>
+        </div>
+      </section>
+
+      {/* How it fits together */}
+      <section className="border-t border-fd-border px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-3 text-center text-2xl font-semibold">
+            How It All Fits Together
+          </h2>
+          <p className="mx-auto mb-10 max-w-2xl text-center text-fd-muted-foreground">
+            Governance is a continuous loop. Every use case moves through the same six
+            stages — and the cycle repeats as systems change. Select any stage to jump in.
+          </p>
+          <LifecycleDiagram />
         </div>
       </section>
 
