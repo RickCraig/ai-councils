@@ -29,6 +29,12 @@ A case should be escalated when:
 | Incident / crisis | Executive sponsor + incident response team | Immediate triage + post-incident review |
 | Regulatory inquiry | Legal + executive sponsor | Coordinated response |
 
+## Escalation in Practice
+
+Consider a council reviewing a proposal to deploy facial recognition in office buildings for access control. After two meetings, the council is split: security members see clear benefits, while privacy and legal members flag disproportionate surveillance risk. The chair determines this is a consensus failure on a high-risk use case and escalates to the executive sponsor. The sponsor convenes a session with an external privacy advisor, who recommends piloting a less intrusive alternative (badge-tap with optional facial recognition). The council documents the decision, updates its risk appetite guidance to clarify biometric use cases, and publishes the outcome as a precedent for future reviews.
+
+This pattern (deadlock, escalation, external input, decision, policy update) is the norm for hard cases. The goal is not to avoid escalation but to make it predictable.
+
 ## Incident Escalation
 
 For AI incidents (system failure, bias discovered in production, data breach involving AI, public complaint), the council should have a dedicated rapid-response path:
@@ -38,3 +44,18 @@ For AI incidents (system failure, bias discovered in production, data breach inv
 3. **Incident response** follows the organization's existing incident management process, with AI-specific considerations added
 4. **Post-incident review** is scheduled at the next council meeting
 5. **Lessons learned** are documented and used to update policy and training
+
+## Copy This Template
+
+```markdown
+# Escalation Matrix
+
+| Trigger | Escalated To | Expected Response | Response Time |
+|---------|-------------|-------------------|---------------|
+| Consensus failure | Executive sponsor | Decision | 5 business days |
+| Exceeds authority | Executive sponsor or board committee | Decision + policy clarification | |
+| Novel / unprecedented | Executive sponsor + external advisor | Decision + policy update | |
+| Conflict of interest | Executive sponsor (conflicted members recused) | Decision with independent review | |
+| Incident / crisis | Executive sponsor + incident response team | Immediate triage + post-incident review | Immediate |
+| Regulatory inquiry | Legal + executive sponsor | Coordinated response | |
+```

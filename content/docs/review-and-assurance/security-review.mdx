@@ -62,3 +62,49 @@ AI systems introduce attack surfaces that traditional application security does 
 ## Integration with Council Review
 
 The security review checklist should be completed by the **security team or CISO representative** and submitted as part of the [Impact Assessment](/docs/review-and-assurance/impact-assessments) for Tier 3 cases. For Tier 2 cases, a lightweight security self-assessment is sufficient.
+
+## Copy This Template
+
+```markdown
+# AI Security Review Checklist
+
+**System name:** [Name]
+**Reviewer:** [Name]
+**Date:** [Date]
+
+## Data Security
+- [ ] Training data is stored securely with access controls
+- [ ] Data pipelines are authenticated and integrity-checked
+- [ ] Sensitive data is encrypted at rest and in transit
+- [ ] Data provenance is documented
+
+## Model Security
+- [ ] Model artifacts are stored in a secure registry with access controls
+- [ ] Model integrity is verified before deployment
+- [ ] Model access is restricted to authorized users and systems
+- [ ] Model outputs are validated before being used downstream
+
+## Application Security
+- [ ] Standard application security controls apply (OWASP Top 10)
+- [ ] Input validation is applied to user-provided prompts and data
+- [ ] Output filtering is applied to prevent information disclosure
+- [ ] Rate limiting and abuse detection are in place
+
+## LLM-Specific Risks
+- [ ] Prompt injection: system prompt protection and input sanitization
+- [ ] Insecure output handling: outputs treated as untrusted
+- [ ] Training data poisoning: data provenance and integrity controls
+- [ ] Model denial of service: resource limits and timeout controls
+- [ ] Supply chain vulnerabilities: third-party model and library vetting
+- [ ] Sensitive information disclosure: output filtering and access controls
+- [ ] Insecure plugin design: API and tool-use boundaries
+- [ ] Excessive agency: scope and permission limits for agentic systems
+- [ ] Overreliance: user training and appropriate trust calibration
+- [ ] Model theft: access controls and monitoring
+
+## Generative AI Specific
+- [ ] Content safety filters are in place
+- [ ] Grounding and attribution mechanisms reduce hallucination risk
+- [ ] Guardrails prevent harmful, illegal, or off-topic content
+- [ ] Logging and monitoring capture usage patterns and anomalies
+```
