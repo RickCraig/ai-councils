@@ -125,6 +125,59 @@ GenAI produces text, code, images, and analysis that sounds confident regardless
 - **Do not assume review is happening.** Build review into the workflow (e.g., approval gates, diff views) rather than relying on policy alone.
 - **For high-volume use cases,** define sampling rates and escalation triggers rather than attempting 100% review.
 
+## Agentic AI
+
+Agentic AI systems go beyond generating text or images. They take actions: writing and executing code, sending emails, querying databases, calling APIs, browsing the web, and orchestrating multi-step workflows. Coding agents, autonomous research assistants, workflow automation tools, and systems connected through protocols like MCP (Model Context Protocol) all fall into this category.
+
+The governance difference is straightforward. When a GenAI chatbot hallucinates, you get a wrong answer. When an agentic system hallucinates, it may take a wrong action: deleting records, sending unauthorized communications, or modifying production systems. The blast radius of failure is larger, and the speed of failure is faster.
+
+### Risk tiering
+
+Agentic systems should be tiered based on what they can do, not what they are intended to do. A coding agent with read-only access to a repository is a different risk profile than one with permission to merge pull requests and deploy to production.
+
+| Factor | Lower risk | Higher risk |
+|--------|-----------|-------------|
+| Action scope | Read-only, single tool | Write access, multiple tools, external APIs |
+| Environment | Sandbox, development | Production, customer-facing |
+| Approval gates | Human approves each action | System acts autonomously |
+| Reversibility | Actions are easily undone | Actions are permanent or affect external parties |
+
+Most agentic systems should tier at 2 or above. Systems with write access to production data, customer communications, or financial systems are Tier 3 by default.
+
+### Permission scoping
+
+Treat tool access as you would IAM permissions: least privilege, explicitly granted, regularly reviewed.
+
+- **Enumerate allowed tools.** Define exactly which tools and APIs the agent can call. "Access to everything" is not an acceptable scope.
+- **Separate read from write.** An agent that can query a database does not automatically need permission to modify it.
+- **Gate sensitive actions.** Require human approval for actions that are irreversible, affect external parties, or touch sensitive data. Build these gates into the system, not into policy alone.
+- **Scope credentials narrowly.** If the agent calls external APIs, issue scoped tokens with minimum required permissions. Do not pass user credentials through to agentic systems.
+- **Review permissions on a schedule.** As agents are updated or given new capabilities, their permission scope should be reassessed.
+
+### Human oversight for multi-step execution
+
+Traditional human oversight assumes a single decision point: the AI recommends, the human approves. Agentic systems challenge this model because they chain multiple steps together, each building on the last. Reviewing only the final output misses the decisions made along the way.
+
+Design oversight for agentic systems around **checkpoints**, not endpoints:
+
+- **Define checkpoint triggers.** Require human review before the agent takes high-consequence actions (e.g., sending external communications, modifying production data, spending above a threshold).
+- **Make the chain of reasoning visible.** The human reviewer needs to see not just the proposed action but the steps that led to it.
+- **Set boundaries, not just approvals.** Define what the agent is allowed to do without asking, and what requires escalation. This is more sustainable than approving every step.
+- **Plan for intervention.** The human must be able to pause, redirect, or stop the agent mid-execution. If stopping the agent mid-workflow creates an inconsistent state, that is a design problem to solve before deployment.
+
+### Logging and auditability
+
+You cannot govern what you cannot reconstruct. Agentic systems must log enough detail to answer the question: "What did the agent do, in what order, and why?"
+
+At minimum, log:
+
+- Every tool call and API request the agent makes, with timestamps
+- The inputs and outputs of each step in the execution chain
+- Which decisions were made autonomously and which had human approval
+- Any errors, retries, or fallback actions
+
+These logs serve both incident response (what went wrong) and ongoing governance (is the agent behaving as intended over time). Feed anomalies into your [Monitoring](/docs/operations/monitoring) process.
+
 ## Common Vendor Scenarios
 
 Most organizations encounter GenAI through purchased tools, not in-house development. The [Governing Purchased AI](/docs/intake-and-triage/vendor-checklist) page covers the full vendor lifecycle. Here is how common GenAI scenarios map to governance actions.
