@@ -17,9 +17,30 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://aicounciltoolkit.com";
+const siteTitle = "AI Council Toolkit";
+const siteDescription =
+  "An open, implementation-grade playbook for building, running, and sustaining an internal AI Council. Practical templates, governance patterns, and operating models you can use today.";
+
 export const metadata: Metadata = {
-  title: "AI Council Toolkit",
-  description: "A toolkit for building an AI Council",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s | ${siteTitle}`,
+  },
+  description: siteDescription,
+  openGraph: {
+    type: "website",
+    siteName: siteTitle,
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
