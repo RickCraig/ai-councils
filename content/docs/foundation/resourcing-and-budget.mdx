@@ -1,0 +1,151 @@
+---
+title: Resourcing and Budget
+description: Estimate the FTE commitment and tooling needed to run an AI Council at different maturity levels.
+---
+
+## Why This Page Exists
+
+The [Roles and Membership](/docs/foundation/roles-and-membership) page defines who sits on the council and how much time each role requires. This page translates those commitments into a resource model your sponsor can use to allocate budget. All figures are expressed as FTE fractions. Multiply by your organization's fully loaded cost per FTE to get a dollar figure.
+
+## FTE by Role
+
+These estimates are based on the time commitments defined in [Roles and Membership](/docs/foundation/roles-and-membership) and [Champion Networks](/docs/operating-models/champion-networks), converted to FTE assuming a 40-hour work week.
+
+| Role | Time Commitment | FTE per Person |
+|------|----------------|----------------|
+| Executive Sponsor | Monthly briefing + escalations | < 0.05 |
+| Council Chair | 4-8 hours/week | 0.1 - 0.2 |
+| Council Member | 2-4 hours/week | 0.05 - 0.1 |
+| Champion | 2-4 hours/week | 0.05 - 0.1 |
+| Program Lead | Depends on maturity stage | 0.25 - 1.0 |
+
+These are **recurring weekly averages**. Actual effort will spike during the first 30 days of setup (see [Your First 30 Days](/docs/getting-started/first-30-days)) and around major reviews or incidents.
+
+## Do You Need a Dedicated Program Lead?
+
+The program lead handles the operational work that keeps the council running: tracking intake requests, preparing meeting agendas, maintaining the AI inventory, producing reports for the sponsor, and keeping governance artifacts current.
+
+At **Minimal** maturity, the council chair typically absorbs this work. It is manageable when the portfolio is small and meetings are infrequent.
+
+At **Established** maturity, the coordination load grows enough that someone needs 0.25 to 0.5 FTE dedicated to it. This is usually an existing staff member (governance analyst, risk manager, AI program manager) who takes on council operations as part of their role.
+
+At **Scaled** maturity, this becomes a full-time position. The volume of intake requests, the size of the champion network, and the reporting cadence make it impractical to run as a side responsibility. Organizations at this stage often title the role "AI Governance Program Manager" or "Responsible AI Lead."
+
+If you are unsure, start without a dedicated lead. You will know you need one when the chair is spending more time on logistics than on governance decisions.
+
+## Total FTE by Maturity Stage
+
+The three stages below align with the maturity progression in the [Council Health Check](/docs/operations/health-check). Use the stage that best matches your current state to estimate total FTE demand.
+
+### Minimal
+
+**Profile:** Getting started. Fewer than 20 AI systems in the inventory. The council meets monthly. No champion network yet.
+
+| Role | Count | FTE Each | Total FTE |
+|------|-------|----------|-----------|
+| Executive Sponsor | 1 | 0.05 | 0.05 |
+| Council Chair | 1 | 0.15 | 0.15 |
+| Council Members | 6 | 0.05 | 0.30 |
+| Program Lead | 0 (chair absorbs) | - | - |
+| Champions | 0 | - | - |
+| **Total** | | | **~0.5 - 1.0** |
+
+The range reflects variation in meeting frequency (monthly vs. fortnightly) and review volume.
+
+### Established
+
+**Profile:** Steady-state operations. 20 to 100 AI systems. Fortnightly meetings. A small champion network is active. The council has a defined intake process and reviews cases regularly.
+
+| Role | Count | FTE Each | Total FTE |
+|------|-------|----------|-----------|
+| Executive Sponsor | 1 | 0.05 | 0.05 |
+| Council Chair | 1 | 0.2 | 0.2 |
+| Council Members | 8 | 0.075 | 0.6 |
+| Program Lead | 1 (part-time) | 0.25 - 0.5 | 0.25 - 0.5 |
+| Champions | 5 | 0.075 | 0.375 |
+| **Total** | | | **~1.5 - 1.75** |
+
+At this stage the program lead role is the biggest variable. Organizations with a high volume of Tier 2 cases will trend toward the upper end.
+
+### Scaled
+
+**Profile:** Enterprise-wide governance. Over 100 AI systems. The council meets fortnightly or weekly. A mature champion network covers all major business units. Dedicated tooling is in place.
+
+| Role | Count | FTE Each | Total FTE |
+|------|-------|----------|-----------|
+| Executive Sponsor | 1 | 0.05 | 0.05 |
+| Council Chair | 1 | 0.2 | 0.2 |
+| Council Members | 10 | 0.1 | 1.0 |
+| Program Lead | 1 (full-time) | 1.0 | 1.0 |
+| Champions | 10-15 | 0.075 | 0.75 - 1.125 |
+| **Total** | | | **~3.0 - 3.5** |
+
+The champion network is the largest contributor at this stage. See [Champion Networks](/docs/operating-models/champion-networks) for guidance on sizing the network to your organization.
+
+## Tooling by Maturity
+
+Tooling costs are separate from people costs. At early stages, existing tools are sufficient. Dedicated platforms become worthwhile when manual tracking creates bottlenecks or when audit requirements demand structured records.
+
+| Category | Minimal | Established | Scaled |
+|----------|---------|-------------|--------|
+| **AI inventory** | Spreadsheet | Shared database or wiki | Dedicated registry platform |
+| **Intake and workflow** | Email + shared form | Workflow tool (ServiceNow, Jira, or similar) | Integrated GRC platform |
+| **Risk assessment** | Document templates | Structured templates with scoring | Automated assessment tooling |
+| **Monitoring** | Manual periodic review | Dashboards with basic alerts | Automated drift and fairness monitoring |
+| **Collaboration** | Existing tools | Existing tools | Existing tools |
+
+Two rules of thumb:
+
+1. **Do not buy tooling before you have a process.** Run manually for at least one quarter so you understand your actual workflow before automating it.
+2. **Collaboration tools are never a new cost.** Every organization already has document sharing, calendars, and messaging. Use what you have.
+
+## Presenting the Resource Model to Your Sponsor
+
+When you bring these numbers to your executive sponsor or CFO, frame them in context:
+
+1. **Compare to the alternative.** Without a council, AI risk management happens through ad-hoc conversations across legal, security, compliance, and IT. That scattered effort often exceeds the council's FTE cost while producing worse outcomes.
+2. **Show the progression.** Start at Minimal. You are not asking for 3+ FTE on day one. The resource model grows with the program.
+3. **Highlight what is reused.** Most council members and champions are existing staff contributing a fraction of their time, not new hires.
+
+## Copy This Template
+
+```markdown
+# AI Council Resource Model
+
+**Organization:** [Name]
+**Date:** [Date]
+**Current maturity stage:** [Minimal / Established / Scaled]
+
+## People
+
+| Role | Name/Title | FTE Allocated | Notes |
+|------|-----------|---------------|-------|
+| Executive Sponsor | | | |
+| Council Chair | | | |
+| Council Member | | | |
+| Council Member | | | |
+| Council Member | | | |
+| Council Member | | | |
+| Council Member | | | |
+| Council Member | | | |
+| Program Lead | | | |
+| Champion | | | |
+| Champion | | | |
+
+**Total FTE:** [Sum]
+
+## Tooling
+
+| Category | Current Tool | Planned Tool | Annual Cost |
+|----------|-------------|-------------|-------------|
+| AI inventory | | | |
+| Intake and workflow | | | |
+| Risk assessment | | | |
+| Monitoring | | | |
+
+**Total annual tooling cost:** [Sum]
+
+## Review Schedule
+
+Next resource review: [Date, typically annual or at maturity stage transition]
+```
