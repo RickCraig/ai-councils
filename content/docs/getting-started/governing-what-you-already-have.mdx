@@ -1,0 +1,185 @@
+---
+title: Governing What You Already Have
+description: A phased guide to discovering, prioritizing, and bringing existing AI systems under governance when your organization already uses AI but has no formal oversight.
+---
+
+Most organizations discovering this toolkit are not starting from zero with AI. They are starting from zero with governance.
+
+Staff have been using ChatGPT and Copilot for months. Vendors have enabled AI features in your existing platforms. Teams have built prototypes. Nobody asked permission because there was no process to ask.
+
+This page gives you a plan to bring that existing AI use under governance without disrupting what is working.
+
+## How This Differs from First 30 Days
+
+[Your First 30 Days](/docs/getting-started/first-30-days) assumes greenfield: stand up a council, create an intake process, and new use cases flow through it. This page assumes you are standing up a council while simultaneously dealing with a backlog of AI already in production.
+
+Run both tracks in parallel. Use First 30 Days to build the council itself (sponsor, charter, membership, intake process). Use this page to discover, prioritize, and assess the AI you already have. The two tracks converge when your existing systems are registered in the [AI Inventory](/docs/intake-and-triage/ai-inventory) and flowing through the standard governance process.
+
+## Communication and Amnesty
+
+The primary risk in retroactive governance is that people hide what they are using. If employees believe that disclosing AI use will result in tools being taken away or blame being assigned, they will not disclose. Your discovery process will fail, and you will be governing a fraction of your actual AI portfolio.
+
+### The no-blame principle
+
+Governance is about going forward, not about punishing what happened before. Make this explicit. When you announce the governance program, lead with a clear statement:
+
+> We are building a governance process for AI. This is about ensuring our AI use is safe, compliant, and effective going forward. We are not investigating or penalizing any current use. We need your help to understand what we have so we can support it properly.
+
+### The amnesty window
+
+Define a specific period (typically 60-90 days) during which any existing AI use can be registered without review, without approval requirements, and without consequence. The purpose is to get everything into the inventory. Assessment comes later.
+
+Communicate the amnesty window to all staff, not just technical teams. Non-technical employees using consumer AI tools are the group most likely to feel anxious about disclosure.
+
+### Who to communicate with
+
+| Audience | Message | When |
+|----------|---------|------|
+| Executive leadership | "We are establishing AI governance. Here is what we will discover and why it matters." | Before discovery begins |
+| Managers | "We need your help identifying AI use in your teams. This is not an audit." | Week 1 of discovery |
+| All staff | "We are cataloging AI tools across the organization. Here is how to register what you use. No consequences for current use." | Week 1-2 of discovery |
+| IT and procurement | "We need your records on AI-related purchases, licenses, and platform features." | Week 1 of discovery |
+
+### Why people hide tools
+
+Understanding the reasons helps you design around them:
+
+- **Fear of losing a tool they depend on.** Counter this by committing to provide alternatives before restricting anything.
+- **Embarrassment about unofficial use.** Counter this by normalizing AI use in communications. Everyone is using it.
+- **Not realizing it counts as AI.** Many employees do not think of autocomplete, smart search, or recommendation features as "AI." Your survey and communications need to define what counts.
+- **Belief that governance means bureaucracy.** Counter this by explaining the tiered model: most existing use will be Tier 1-2 and require minimal process.
+
+## Phase 1: Discovery (Weeks 1-4)
+
+The goal is to find out what AI you already have. Your first inventory will be incomplete. The point is to establish a baseline and surface the systems that matter most.
+
+### Discovery methods
+
+No single method will find everything. Use several in combination.
+
+**Procurement and license audit.** Pull records from procurement, accounts payable, and IT asset management. Search for AI-related vendors, subscriptions, and license agreements. This catches formally purchased tools but misses free-tier and embedded AI.
+
+**Platform feature scan.** Review your major enterprise platforms (Microsoft 365, Salesforce, ServiceNow, Google Workspace, etc.) for AI features that may have been enabled. Many of these are turned on by default or enabled by an administrator without going through a procurement process.
+
+**Employee self-registration.** During the amnesty window, ask employees to register AI tools they use through a simplified version of the [Use Case Registration](/docs/intake-and-triage/use-case-registration) form. Keep the form short for this purpose: tool name, what they use it for, what data they put into it, how often they use it.
+
+**Champion-led team conversations.** If you have identified early champions (per [First 30 Days](/docs/getting-started/first-30-days) Week 4), ask them to have informal conversations with their teams about AI use. This surfaces tools that employees would not think to register on their own.
+
+**Network and DLP analysis.** Where technically feasible, review network logs and data loss prevention reports for traffic to known AI services. This is a supplement to self-registration, not a replacement. Use it to validate completeness, not as the primary discovery method. Leading with surveillance undermines the trust you are building.
+
+### What to capture
+
+For each discovered system, record at minimum:
+
+| Field | Description |
+|-------|------------|
+| System or tool name | What is it? |
+| Owner or primary user | Who uses it or manages it? |
+| Business unit | Which part of the organization? |
+| What it does | Brief description of the use case |
+| Data inputs | What data goes into it? (especially personal or confidential data) |
+| User count | Roughly how many people use it? |
+| How it was acquired | Purchased, free tier, embedded feature, built in-house |
+
+This maps to the [AI Inventory](/docs/intake-and-triage/ai-inventory) template. You can enrich the records later; the priority now is coverage.
+
+### Phase 1 deliverable
+
+A draft inventory of all known AI systems. It will have gaps, which you will fill as discovery continues.
+
+## Phase 2: Prioritization (Weeks 3-6)
+
+You now have a list of AI systems, probably longer than expected. You cannot assess them all at once. This phase is about deciding what to review first.
+
+### Quick-sort by risk tier
+
+Apply the [Risk Tiering](/docs/intake-and-triage/risk-tiering) worksheet to each discovered system. You do not need a full assessment at this stage. A 5-minute triage based on the six risk indicator questions is enough to assign an approximate tier.
+
+### Prioritization criteria
+
+After tiering, prioritize within each tier using these factors:
+
+| Factor | Why it matters |
+|--------|---------------|
+| **Customer-facing or public-facing** | Highest external exposure and reputational risk |
+| **Processes sensitive or personal data** | Privacy and compliance obligations |
+| **Influences consequential decisions** | Affects access to services, benefits, or opportunities |
+| **Operates in a regulated domain** | Healthcare, finance, employment, law enforcement |
+| **High user count** | Organization-wide tools (e.g., Copilot) affect the most people |
+| **No human review of outputs** | Automated or semi-automated decisions carry higher risk |
+
+### What can wait
+
+Not everything needs immediate attention. Tier 1 systems (internal-only, low-risk, human-reviewed) can be registered and confirmed without formal assessment. Focus your assessment capacity on Tier 2-3 systems.
+
+### Phase 2 deliverable
+
+A prioritized backlog: every discovered system has an assigned tier and a priority order for assessment. The council (or chair, if the council is still forming) approves the priority list.
+
+## Phase 3: Assessment (Months 2-4)
+
+Now you begin reviewing the highest-priority existing systems using the toolkit's standard review instruments.
+
+### Calibrating for existing systems
+
+Reviewing a system already in production is different from reviewing a proposed system:
+
+- **You are assessing actual behavior, not hypothetical behavior.** You can look at real usage data, real outputs, real user feedback. This is an advantage.
+- **The system has users and stakeholders who depend on it.** You cannot simply block a tool that 500 people use every day. Your assessment needs to consider remediation paths, not just approve/reject.
+- **You may discover issues that need immediate action.** A system processing personal data without appropriate consent, a tool with no human oversight on consequential decisions, or a vendor whose terms changed since purchase. Have a plan for urgent findings.
+
+### Assessment approach by tier
+
+| Tier | Assessment approach | Approximate effort |
+|------|--------------------|--------------------|
+| Tier 1 | Register and confirm. No formal review. Champion validates the self-assessment. | 15 minutes per system |
+| Tier 2 | Champion review with lightweight assessment. Check data practices, human oversight, and vendor terms. | 1-2 hours per system |
+| Tier 3 | Full [Impact Assessment](/docs/review-and-assurance/impact-assessments). Security review. Council decision. | 1-2 weeks per system |
+
+### Handling difficult findings
+
+When you discover a system that would not have been approved under your new governance framework, you have four options:
+
+1. **Approve with conditions.** The system can continue, but specific mitigations must be implemented by a defined date (e.g., add human review, update vendor contract, restrict data inputs).
+2. **Remediate and re-assess.** The system is paused or restricted until the identified issues are resolved, then re-assessed.
+3. **Replace.** The system is replaced with an alternative that meets governance requirements. Provide the replacement before removing the existing tool.
+4. **Retire.** The system is decommissioned. This should be the last resort, and only for systems with unacceptable risk that cannot be mitigated.
+
+In all cases, communicate the decision and rationale to affected users. "We reviewed this tool and here is what we found" is acceptable. "You should not have been using this" is not.
+
+### Phase 3 deliverable
+
+Assessment records for the first wave of priority systems. Remediation actions assigned and tracked. Council decisions documented in the decision log.
+
+## Phase 4: Normalization (Month 4+)
+
+The goal of this phase is to close the gap between "retrofit" and "business as usual." Once you reach this point, all AI governance flows through the standard process.
+
+### What normalization looks like
+
+- All discovered systems are in the [AI Inventory](/docs/intake-and-triage/ai-inventory) with assigned tiers and review dates.
+- Future changes to existing systems go through standard [intake](/docs/intake-and-triage/use-case-registration).
+- Vendor contract renewals are governance checkpoints (see [Governing Purchased AI](/docs/intake-and-triage/vendor-checklist)).
+- [Pre-approved patterns](/docs/intake-and-triage/routing-logic) are established for common low-risk uses, reducing future review overhead.
+- The amnesty window is closed. New AI use follows the standard process from the start.
+- [Monitoring](/docs/operations/monitoring) and [policy refresh](/docs/operations/policy-refresh) cycles are running.
+
+### Clearing the backlog
+
+You will likely not have assessed every discovered system by Month 4. The backlog can continue past this point as long as:
+
+- All Tier 3 systems have been assessed or have a scheduled assessment date
+- All Tier 2 systems have been assessed or are in the assessment queue
+- Tier 1 systems are registered and confirmed
+- The backlog has a clear owner and is being worked through
+
+## What Not to Do
+
+| Mistake | Why it fails |
+|---------|-------------|
+| **Try to assess everything at once** | You will overwhelm the council and stall. Prioritize and work in waves. |
+| **Lead with enforcement before amnesty** | People will hide tools. Your inventory will be incomplete. You will govern a fraction of your actual AI portfolio. |
+| **Block tools without providing alternatives** | Employees use AI because it helps them do their jobs. Removing a tool without a replacement creates resentment and drives usage underground. |
+| **Treat discovery as an audit** | The language of auditing (investigation, compliance, findings) triggers defensiveness. Use the language of understanding and support. |
+| **Wait for the perfect inventory** | Discovery is never complete. Start prioritization as soon as you have enough to work with. You can add to the inventory continuously. |
+| **Skip the communication plan** | If you do not actively message the amnesty and no-blame principle, the default assumption will be that governance means punishment. |

@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Councils",
+  title: "AI Council Toolkit",
   description: "A toolkit for building an AI Council",
 };
 

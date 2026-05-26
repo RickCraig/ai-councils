@@ -1,0 +1,177 @@
+---
+title: Governing Generative AI
+description: A unified guide to governing generative AI tools and services, pulling together GenAI-specific guidance from across the toolkit.
+---
+
+## Why Generative AI Needs Specific Governance
+
+Traditional AI governance was designed for predictive models: a credit scoring algorithm, a fraud detection system, a recommendation engine. These systems are trained on known data, produce structured outputs, and are deployed by specialist teams.
+
+Generative AI is different in ways that matter for governance:
+
+- **Broad access.** GenAI tools like ChatGPT, Copilot, and Gemini are used by non-technical employees across the organization. Governance cannot rely on a small team of ML engineers following best practices.
+- **Non-deterministic outputs.** The same prompt can produce different results. Testing and assurance require different methods than traditional model validation.
+- **Data flows in both directions.** Users send data to GenAI systems through prompts. That data may be logged, used for training, or processed by third-party sub-processors. The input is the risk, not just the output.
+- **Rapid vendor evolution.** Models are updated frequently, sometimes without notice. A tool assessed in January may behave differently by March.
+- **Confident errors.** GenAI produces fluent, authoritative-sounding text even when the content is fabricated. Users without domain expertise may not catch errors.
+
+Your existing governance framework (intake, risk tiering, security review, human oversight) still applies. This page shows how to apply it to the specific challenges of generative AI.
+
+## Acceptable Use Policies
+
+An acceptable use policy (AUP) for generative AI sets clear boundaries for employees before individual use cases reach the council. A good AUP answers the questions employees are already asking: "Can I use ChatGPT for this?"
+
+### What to cover
+
+**Approved tools.** List the GenAI tools the organization has vetted and approved. Be explicit: "Use Microsoft Copilot for internal document drafting" is more useful than "use approved tools." Update this list as new tools are assessed.
+
+**Permitted uses.** Define what employees can do with approved tools. Common permitted uses include drafting internal documents, summarizing meeting notes, generating code with human review, and brainstorming. Be specific enough that employees can self-assess without filing an intake request for routine tasks.
+
+**Prohibited uses.** State what is not allowed. Common prohibitions include:
+
+- Entering customer personal data, trade secrets, or confidential business data into public GenAI tools
+- Using GenAI outputs in regulated decisions (hiring, credit, benefits) without human review and council-approved safeguards
+- Publishing GenAI-generated content externally without human review and disclosure where required
+- Using GenAI to impersonate individuals or generate deceptive content
+
+**Disclosure requirements.** Define when employees must disclose that GenAI was used. This varies by context: internal drafts may not need disclosure, but customer-facing content or regulatory filings likely do.
+
+**Human review expectations.** State clearly that GenAI outputs must be reviewed by a qualified person before use in any consequential context. Define what "qualified" means for different use cases.
+
+### Keeping the AUP current
+
+GenAI capabilities change fast. Build a review trigger into your [Policy Refresh](/docs/operations/policy-refresh) cycle, and update the approved tools list whenever the council assesses a new GenAI tool.
+
+## Risk Tiering for Generative AI
+
+The toolkit's [four-tier risk model](/docs/intake-and-triage/risk-tiering) applies to GenAI, but some use cases land at a different tier than you might expect. The key factors are data sensitivity, audience, and degree of automation.
+
+| Use case | Typical tier | Rationale |
+|----------|-------------|-----------|
+| Developer code completion (internal, no sensitive data) | Tier 1 | Internal use, human reviews all output, low-sensitivity data |
+| Internal document summarization | Tier 1-2 | Depends on whether documents contain sensitive or confidential data |
+| Customer support chatbot with human escalation | Tier 2 | Customer-facing but with human oversight |
+| GenAI drafting customer communications (sent after review) | Tier 2 | Customer-facing content, human review before sending |
+| GenAI generating medical or legal advice | Tier 3 | Regulated domain, high consequence of error |
+| Automated content publishing without human review | Tier 3 | No human oversight on external-facing output |
+| Enterprise copilot connected to sensitive data stores | Tier 3 | Broad access to sensitive data, data leakage risk |
+| GenAI in hiring decisions (resume screening, interview scoring) | Tier 3-4 | Affects access to opportunities, potential for bias |
+
+The main adjustment for GenAI: **do not under-tier based on the tool's general-purpose nature.** A copilot that drafts emails is Tier 1-2. The same copilot connected to your HR database is Tier 3. Tier based on what the system accesses and what decisions it informs, not on the brand name.
+
+## Security and Prompt Injection
+
+GenAI introduces attack surfaces that traditional application security does not address. Your security team should be aware of these risks even for vendor-hosted tools where you do not control the model.
+
+### Key threats
+
+**Prompt injection.** An attacker (or a user) crafts input that overrides the system's intended behavior. This can cause the system to ignore safety instructions, leak system prompts, or take unintended actions. For agentic systems with tool access, prompt injection can lead to unauthorized actions.
+
+**Data extraction.** Carefully crafted prompts can coax a model into revealing training data, system prompts, or information from other users' sessions (in poorly isolated multi-tenant systems).
+
+**Insecure output handling.** GenAI outputs may contain executable code, SQL, or markup. If downstream systems execute GenAI output without validation, this creates injection vulnerabilities.
+
+**Excessive agency.** Agentic AI systems that can browse the web, execute code, or call APIs amplify the impact of any prompt injection or hallucination. Scope and permission limits are critical.
+
+### What to do
+
+For detailed checklists, see the [Security Review](/docs/review-and-assurance/security-review) page (especially the LLM-Specific Risks and Generative AI Specific sections) and the [Red-Teaming](/docs/review-and-assurance/red-teaming) guide for adversarial testing approaches.
+
+At a minimum for any GenAI deployment:
+
+- Apply input validation and output filtering
+- Treat all GenAI outputs as untrusted in downstream systems
+- Limit tool access and permissions for agentic systems to the minimum required
+- Log prompts and outputs for audit and incident response
+- Test for prompt injection before deployment and after model updates
+
+## Data Leakage Risks
+
+Data leakage is the risk that keeps CISOs up at night with GenAI. Unlike traditional systems where data flows are well-defined, GenAI creates new pathways for sensitive information to leave the organization.
+
+### How data leaks through GenAI
+
+**Prompts as training data.** Some GenAI providers use customer prompts to improve their models. An employee pasting a confidential contract into a public chat interface may be contributing that text to the provider's training set. Check vendor terms carefully and opt out where possible.
+
+**Context window exposure.** In shared or multi-tenant environments, poor session isolation could allow one user's context to bleed into another's responses. This is primarily a vendor architecture concern, but your assessment should confirm isolation guarantees.
+
+**Third-party sub-processors.** Your vendor may route requests through other model providers. Data that you send to Vendor A may be processed by Vendor B's infrastructure. The [Governing Purchased AI](/docs/intake-and-triage/vendor-checklist) assessment covers this.
+
+**Employee behavior.** The most common leakage vector is employees pasting sensitive data into GenAI tools, often with good intentions (summarizing a document, debugging code with production data). The AUP and training are your primary controls here.
+
+### Controls
+
+- Classify data before it touches GenAI: public, internal, confidential, restricted. Define which classifications can be used with which tools.
+- Use enterprise versions of GenAI tools that contractually exclude customer data from training.
+- Deploy DLP (data loss prevention) tools that monitor for sensitive data in GenAI prompts where technically feasible.
+- Train employees on what data they can and cannot use with GenAI tools. Make this part of your [Training and Literacy](/docs/operations/training-and-literacy) program.
+
+## Human Oversight for GenAI Outputs
+
+GenAI produces text, code, images, and analysis that sounds confident regardless of accuracy. This makes human oversight both more important and harder to do well. See [Human Oversight](/docs/review-and-assurance/human-oversight) for the full framework.
+
+### Why GenAI is different
+
+**Hallucination.** GenAI can fabricate facts, citations, statistics, and legal references with complete fluency. A human reviewer who is not a subject-matter expert may not catch these errors.
+
+**Automation bias.** Well-formatted, articulate output creates a strong presumption of correctness. Studies consistently show that people over-trust AI outputs, especially when the output matches their expectations.
+
+**Volume.** GenAI can produce content at a scale that makes line-by-line human review impractical. Governance needs to define where review is required and where sampling or spot-checking is acceptable.
+
+### Practical guidance
+
+- **Match reviewer expertise to the domain.** A legal document drafted by GenAI should be reviewed by a lawyer, not by the person who prompted the model.
+- **Define review standards by risk tier.** Tier 1 may accept self-review by the user. Tier 2-3 should require review by someone other than the prompter, with domain expertise.
+- **Do not assume review is happening.** Build review into the workflow (e.g., approval gates, diff views) rather than relying on policy alone.
+- **For high-volume use cases,** define sampling rates and escalation triggers rather than attempting 100% review.
+
+## Common Vendor Scenarios
+
+Most organizations encounter GenAI through purchased tools, not in-house development. The [Governing Purchased AI](/docs/intake-and-triage/vendor-checklist) page covers the full vendor lifecycle. Here is how common GenAI scenarios map to governance actions.
+
+### Enterprise copilots (Microsoft Copilot, Google Gemini for Workspace)
+
+These tools are typically rolled out organization-wide, which means the governance decision affects every employee.
+
+- Conduct an organization-wide assessment before rollout, not after.
+- Define an acceptable use policy specific to the copilot (what data sources it can access, what tasks it should and should not be used for).
+- Tier at 2 for general use. Escalate to Tier 3 if the copilot is connected to sensitive data stores (SharePoint sites with HR data, financial systems).
+- Assign a champion or champion team to handle ongoing questions and collect feedback.
+
+### Foundation model APIs (OpenAI, Anthropic, Google)
+
+API access means your developers are building applications on top of foundation models. The risk is in the application, not just the API.
+
+- Assess each application built on the API separately. API access approval does not mean every application built on it is approved.
+- Tier 3 by default. Security review required for every application.
+- Require developers to document prompt designs, data flows, and guardrails for each application.
+- Re-assess when the underlying model is updated (e.g., GPT-4 to GPT-5).
+
+### Embedded AI features (Salesforce Einstein, ServiceNow AI)
+
+AI features are increasingly enabled by default in enterprise platforms. The governance gap is that nobody filed an intake request because nobody "bought AI."
+
+- Proactively scan your existing platform portfolio for AI features that may have been enabled without assessment.
+- Assess when features are first enabled, not when the platform was originally purchased.
+- Champions in each business unit are your front line for spotting these.
+
+### Free and consumer-tier tools
+
+The hardest category to govern. Employees use free ChatGPT, Claude, and other tools without procurement involvement.
+
+- The AUP is your primary control. Be clear about what is and is not permitted.
+- Block access at the network level if your risk appetite requires it, but recognize that personal devices make this imperfect.
+- Offer approved alternatives. Employees use shadow AI because it helps them do their jobs. Give them a sanctioned option.
+- Champions should surface shadow usage patterns without creating a punitive culture.
+
+## Where to Go Next
+
+This page provides the unified view. For detailed guidance on each topic:
+
+- [Risk Tiering](/docs/intake-and-triage/risk-tiering) for the full four-tier model and tiering worksheet
+- [Security Review](/docs/review-and-assurance/security-review) for the complete security checklist including LLM-specific risks
+- [Red-Teaming](/docs/review-and-assurance/red-teaming) for adversarial testing approaches
+- [Human Oversight](/docs/review-and-assurance/human-oversight) for the full oversight framework
+- [Governing Purchased AI](/docs/intake-and-triage/vendor-checklist) for the vendor lifecycle and assessment checklists
+- [Training and Literacy](/docs/operations/training-and-literacy) for building GenAI awareness across the organization
+- [NIST AI RMF](/docs/standards-and-regulations/nist-ai-rmf) for the Generative AI Profile
