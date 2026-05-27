@@ -1,0 +1,67 @@
+---
+title: Organizational Placement
+description: Where the AI Council sits in your existing governance structure, who it reports to, and how it connects to adjacent committees.
+---
+
+## The Placement Question
+
+You have picked a governance model. Now you need to decide where the council sits in the org chart. This matters more than it sounds: a council placed too deep in one function lacks the cross-cutting authority it needs, while a council with no clear home drifts without accountability.
+
+The goal is to position the council where it has executive visibility, a clear reporting line, and enough organizational independence to challenge decisions when needed.
+
+## Reporting Lines
+
+There is no single right answer. The best reporting line depends on what is driving AI governance in your organization.
+
+| Organizational context | Recommended reporting line | Rationale |
+|------------------------|---------------------------|-----------|
+| AI is primarily a technology initiative | CTO or Chief Digital Officer | Council aligns with technology strategy and has direct access to engineering leadership |
+| Risk management is the primary driver | CISO or Chief Risk Officer | Council aligns with the risk function that will be held accountable for AI failures |
+| AI governance extends an existing data strategy | Chief Data Officer | AI governance builds naturally on data governance foundations already in place |
+| Legal or regulatory pressure is the dominant force | General Counsel | Council aligns with the function responsible for compliance obligations |
+| No single function clearly owns AI | COO or direct CEO report | A neutral home prevents turf battles and signals organization-wide scope |
+
+A few principles apply regardless of where the council lands:
+
+- **Executive-level reporting is not optional.** The council's sponsor should sit at or report directly to the C-suite. A council that reports to a director three levels down will struggle to enforce decisions or get airtime when it matters.
+- **The reporting line should match where accountability lands.** If the board holds the CTO accountable for AI risk, the council should report to the CTO. Misalignment between accountability and reporting creates friction.
+- **Revisit placement as AI matures.** An organization that starts with AI as a technology initiative may find, two years later, that regulatory compliance is the dominant concern. The reporting line should evolve with the organization's needs.
+
+## Connecting to Existing Committees
+
+The AI Council will overlap with bodies that already exist. Rather than competing with them, build explicit connections.
+
+### Identify the key adjacencies
+
+Most organizations will have some combination of these:
+
+| Existing body | Relationship to AI Council |
+|---------------|---------------------------|
+| Data governance council | Shares concerns around data quality, lineage, and privacy. AI training data governance is a natural joint interest. |
+| Security steering committee | Covers threat modeling, access control, and incident response. AI-specific risks (prompt injection, model extraction, adversarial attacks) extend the security committee's scope. |
+| Architecture review board | Reviews technology decisions and standards. AI infrastructure choices (model hosting, API design, integration patterns) fall into their domain. |
+| Risk or audit committee | Oversees enterprise risk and compliance. The AI Council feeds risk assessments and decision logs upward for board-level reporting. |
+| Ethics committee | Where one exists, handles questions of fairness, bias, and societal impact. The AI Council's impact assessments may surface cases that need ethics review. |
+
+### Build the connections
+
+Standing relationships work better than ad-hoc coordination. Practical mechanisms include:
+
+- **Liaison roles.** Appoint one AI Council member as the standing liaison to each adjacent body. They attend key meetings, flag relevant items, and carry context in both directions.
+- **Shared reporting cadence.** Align the AI Council's reporting cycle with the risk or audit committee's calendar so that AI risk data arrives when the committee needs it.
+- **Cross-membership.** Where practical, include a representative from the security steering committee or data governance council as a standing AI Council member. This is more effective than liaison roles but harder to staff.
+- **Escalation clarity.** Define which questions the AI Council answers itself and which it routes to an adjacent body. For example, a question about whether a model's training data complies with data retention policy is a data governance question. A question about whether a model's outputs are fair is an AI Council question.
+
+The [Adjacent Councils](/docs/real-world-patterns/adjacent-councils) page describes patterns from these bodies that you can borrow for your own council design.
+
+## Signs You Have Placed It Wrong
+
+If the council has been running for a few months and you see these symptoms, revisit your placement:
+
+- **Decisions get overridden without discussion.** The council approves or blocks a use case, and a senior leader reverses the decision without engaging the council. This signals the council lacks authority at its current level.
+- **Teams do not escalate.** Use cases are deployed without going through intake. Teams either do not know the council exists or do not believe it has the standing to require review.
+- **The sponsor stops attending.** If the executive sponsor consistently skips meetings or delegates to a junior proxy, the council has lost its organizational anchor.
+- **Adjacent committees ignore the council.** The security steering committee or architecture review board makes AI-related decisions without consulting the council. This suggests the council is not positioned as a peer.
+- **No one asks for the council's input on strategy.** A well-placed council gets pulled into AI strategy discussions, vendor evaluations, and policy development. If leadership treats it as purely reactive (reviewing cases after the fact), it is sitting too low in the organization.
+
+When you see these signals, the fix is usually not to change how the council operates. It is to move where it reports and who sponsors it.
