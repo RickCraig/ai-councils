@@ -1,0 +1,160 @@
+---
+title: IP and Copyright
+description: Decision frameworks for intellectual property ownership, copyright risk, and disclosure obligations when AI generates or influences your organization's output.
+---
+
+## Why IP and Copyright Governance Matters
+
+AI tools that generate text, code, images, and analysis raise questions that existing intellectual property frameworks were not designed to answer. Who owns a document drafted by a large language model? Can your organization claim copyright over AI-generated code? What happens if an AI tool reproduces copyrighted material in its output?
+
+These are not hypothetical concerns. The US Copyright Office has ruled that purely AI-generated works are not eligible for copyright registration. Courts in multiple jurisdictions are hearing cases about whether training AI models on copyrighted data constitutes infringement. Employment contracts written before the AI era may not clearly assign rights to AI-assisted work product.
+
+The legal landscape is evolving and varies by jurisdiction. Organizations cannot wait for settled case law. They need internal policy positions that protect the business, guide employees, and adapt as the law develops. This page provides decision frameworks for building those positions.
+
+For the broader context on governing generative AI tools, see [Governing Generative AI](/docs/getting-started/governing-generative-ai).
+
+## Ownership of AI-Generated Output
+
+When an employee uses an AI tool to produce text, code, images, or analysis, who owns the result? The answer depends on how much human involvement shaped the output, your jurisdiction, and your organization's contracts.
+
+### The legal landscape
+
+Copyright law in most jurisdictions requires human authorship. The US Copyright Office has confirmed that works generated entirely by AI, with no meaningful human creative input, cannot be registered for copyright. The UK is an exception, with provisions for computer-generated works, though these have not been tested against modern generative AI.
+
+The practical difficulty is drawing the line between "AI-generated" (no copyright protection) and "AI-assisted" (potentially copyrightable as human work). An employee who types a one-line prompt and accepts the output verbatim is in different territory than one who iterates through dozens of prompts, edits extensively, and combines AI output with original material.
+
+### Key questions to resolve
+
+| Question | Why it matters |
+|----------|---------------|
+| Does your organization treat AI output as copyrightable? | Affects whether you can enforce IP rights on AI-assisted work |
+| What level of human contribution makes output "human-authored"? | Determines where the AI-assisted vs AI-generated line falls |
+| Who owns AI-assisted output: the employee, the organization, or neither? | Needs to align with existing employment IP agreements |
+| Do existing IP assignment clauses in employment contracts cover AI-assisted work? | Many contracts predate AI tools and may have gaps |
+
+### Example policy positions
+
+These are starting points, not recommendations. The right position depends on your jurisdiction, industry, and risk appetite.
+
+**Conservative.** Treat all substantially AI-generated output as having no copyright protection. Use AI for internal productivity (drafting, brainstorming, summarization) but do not rely on AI-generated material as a competitive IP asset. This avoids ownership disputes entirely.
+
+**Moderate.** Claim ownership where significant human creative input shaped the output. Require employees to document their contribution when AI tools are involved in creating work that the organization intends to protect. Review employment IP assignment clauses to confirm they cover AI-assisted work.
+
+**Permissive.** Treat AI as a tool like any other (word processor, spreadsheet, design software). Existing IP assignment policies apply. The employee who directed the AI owns the output on behalf of the organization, subject to the same terms as any other work product.
+
+Whichever position you adopt, have legal counsel review your employment agreements and contractor terms to confirm they address AI-assisted work.
+
+## Training Data and Copyright Exposure
+
+AI models are trained on large datasets that include copyrighted material. This creates risk for organizations that use those models, even when the organization had no role in training them.
+
+### How the risk flows
+
+**Downstream risk.** If a model produces output that substantially reproduces copyrighted training data, your organization could face infringement claims for using that output commercially. This is most likely with long-form text, code, and images, where the model may reproduce patterns closely matching its training data.
+
+**Upstream risk.** If your organization trains or fine-tunes models, the data you use carries its own copyright obligations. Using copyrighted material without appropriate licenses or fair use justification creates direct liability.
+
+### The legal context
+
+Multiple lawsuits are testing whether training AI models on copyrighted data constitutes fair use. Courts have not reached a definitive conclusion, and outcomes may vary by jurisdiction, data type, and commercial use. Organizations should plan for a range of possible outcomes rather than assuming any single ruling will resolve the question.
+
+### Assessing your exposure
+
+| Factor | Lower exposure | Higher exposure |
+|--------|---------------|-----------------|
+| Output use | Internal productivity | Commercial products, published content |
+| Output type | Summaries, analysis, short-form text | Long-form text, code, images in the style of specific creators |
+| Vendor protections | Vendor offers IP indemnification | No indemnification or indemnification is capped |
+| Fine-tuning | Using vendor models as-is | Training or fine-tuning on third-party data |
+
+### Practical mitigations
+
+**Vendor indemnification.** Review whether your AI vendors offer IP indemnification (protection if their model's output infringes on third-party copyrights). Many enterprise-tier AI providers now offer some form of indemnification, but coverage varies. Check the scope, caps, and conditions carefully. See [Governing Purchased AI](/docs/intake-and-triage/vendor-checklist) for the full vendor assessment framework.
+
+**Output review for high-risk uses.** For commercial or published outputs, consider whether the content could plausibly be derived from a specific copyrighted source. This is especially relevant for code (which may match open-source repositories) and images (which may reflect the style of specific artists).
+
+**Provenance documentation.** Record which AI tools produced which outputs, especially for material that will be published, delivered to clients, or included in products. This supports both internal audit and legal defense if questions arise.
+
+**Prompt discipline.** Avoid prompts that explicitly reference copyrighted works, specific authors, or specific artists by name when generating commercial content. "Write in the style of [specific author]" increases the likelihood of output that resembles protected work.
+
+## AI-Generated Code in Production Systems
+
+Code generated by AI tools (GitHub Copilot, coding agents, chat-based assistants) deserves specific policy attention. Unlike a drafted email or meeting summary, code has a long lifespan, becomes part of your product, and carries license obligations that prose does not.
+
+### Why code is different
+
+**License obligations.** AI coding tools may produce code that closely matches open-source repositories in their training data. That code may carry license obligations (copyleft requirements, attribution clauses) that your organization is unknowingly inheriting.
+
+**Lifespan and reach.** A paragraph drafted by AI and reviewed by a human has a limited blast radius. Code that enters your production system may run for years, be built upon by other developers, and ship to customers.
+
+**Auditability.** Customers, partners, and acquirers may ask whether your codebase contains AI-generated code, especially in regulated industries or during due diligence.
+
+### Key policy questions
+
+| Question | Why it matters |
+|----------|---------------|
+| Is AI-generated code permitted in production systems? | Some organizations restrict it to internal tooling or prototyping only |
+| Must AI-generated code be reviewed to the same standard as human-written code? | Review expectations should be explicit, not assumed |
+| How do you track which code was AI-generated? | Needed for license compliance audits and incident investigation |
+| Do open-source license risks change when code is AI-generated? | AI coding tools may reproduce open-source code with license obligations |
+
+### Example policy positions
+
+**Restrictive.** AI-generated code is permitted for prototyping and internal tools only. It does not enter customer-facing production systems. This is common in organizations with strict IP requirements or those selling software where code provenance matters for due diligence.
+
+**Controlled.** AI-generated code is permitted in production with mandatory human review, standard code review processes, and license scanning. This balances productivity gains with risk management. Most organizations land here.
+
+**Open.** AI-generated code is treated the same as human-written code. Existing review and quality processes apply without distinction. This works for organizations where code review and CI/CD processes are already strong enough to catch quality and license issues regardless of origin.
+
+### License scanning
+
+AI coding tools like GitHub Copilot offer optional filters that flag code matching known open-source repositories. Enable these filters. For organizations with strict license compliance requirements (especially those shipping software to customers), this is a minimum control, not an optional extra.
+
+For how AI coding tools fit into the broader risk tiering model, see the developer code completion row in the [Governing Generative AI](/docs/getting-started/governing-generative-ai) risk tiering table.
+
+## Disclosure When AI Creates Deliverables
+
+When AI contributes to content or deliverables that reach customers, regulators, or the public, organizations need a clear position on when and how to disclose that involvement.
+
+### Why disclosure matters
+
+**Regulatory requirements.** The EU AI Act requires disclosure for certain categories of AI-generated content, including deepfakes and AI-generated text published to inform the public. Other jurisdictions are developing similar requirements.
+
+**Contractual obligations.** Client contracts, especially in professional services, consulting, and creative industries, may require that deliverables represent original human work. Using AI without disclosure could breach those terms.
+
+**Reputational risk.** If undisclosed AI use is discovered after the fact, the reputational damage often exceeds whatever the reaction to upfront disclosure would have been. This is especially true in contexts where trust and expertise are central to the relationship.
+
+### When to disclose
+
+| Context | Disclosure likely required | Disclosure discretionary |
+|---------|---------------------------|--------------------------|
+| Regulated filings (legal, financial, medical) | Yes, in most jurisdictions | |
+| Customer-facing content (marketing, proposals) | Check client contracts | Where AI assisted but human authored |
+| Internal documents | | Generally not required |
+| Creative deliverables (design, copywriting) | Where client expects human creative work | Where AI is one input among many |
+| Code delivered to clients | Where contracts specify original work | Internal tooling delivered as part of a product |
+
+### Practical guidance
+
+**Define disclosure thresholds.** Not every use of AI requires disclosure. Spell-checking with an AI tool is different from generating an entire report. Define what level of AI involvement triggers disclosure requirements in your organization.
+
+**Create standard disclosure language.** Do not leave disclosure wording to individual employees. Provide approved templates for common scenarios (client deliverables, published content, regulatory filings) so that disclosure is consistent and appropriate.
+
+**Build disclosure into workflows.** Add a disclosure checkpoint to delivery and publication processes. This is more reliable than relying on individuals to remember. A simple checkbox ("Does this deliverable include AI-generated content?") in your review workflow goes a long way.
+
+Disclosure norms are evolving quickly. Include this topic in each [Policy Refresh](/docs/operations/policy-refresh) cycle. For related guidance on acceptable use disclosure requirements, see the AUP section of [Governing Generative AI](/docs/getting-started/governing-generative-ai).
+
+## Building Your IP Policy
+
+Use this checklist to track progress on establishing your organization's IP and copyright governance for AI.
+
+- [ ] Define your organization's position on ownership of AI-generated output
+- [ ] Review existing employment IP assignment clauses for AI-related gaps
+- [ ] Assess copyright exposure for each AI tool based on vendor indemnification and output use
+- [ ] Establish policy on AI-generated code in production systems (restricted, controlled, or open)
+- [ ] Enable license-matching filters on AI coding tools where available
+- [ ] Define disclosure thresholds for customer-facing and regulated deliverables
+- [ ] Create standard disclosure language for use when disclosure is triggered
+- [ ] Add IP and copyright review to the [Impact Assessment](/docs/review-and-assurance/impact-assessments) process
+- [ ] Include IP policy in [Training and Literacy](/docs/operations/training-and-literacy) programs
+- [ ] Schedule IP policy review as part of the [Policy Refresh](/docs/operations/policy-refresh) cycle
