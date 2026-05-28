@@ -1,0 +1,40 @@
+name: Showcase Submission
+description: Submit your organization for the "Who's Using This" showcase
+title: "Showcase: [Organization Name]"
+labels: ["showcase"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for using the AI Council Toolkit! Fill out the fields below
+        and we will add your organization to the showcase.
+  - type: input
+    id: org-name
+    attributes:
+      label: Organization name
+      placeholder: "Acme Corp"
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website URL
+      placeholder: "https://example.com"
+    validations:
+      required: true
+  - type: input
+    id: logo-url
+    attributes:
+      label: Logo URL
+      description: A direct link to your logo image (PNG or SVG preferred, at least 200px wide).
+      placeholder: "https://example.com/logo.png"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Brief description
+      description: One or two sentences about how your organization uses the toolkit.
+      placeholder: "We used the AI Council Toolkit to stand up our enterprise AI governance board in Q1 2026."
+    validations:
+      required: false
